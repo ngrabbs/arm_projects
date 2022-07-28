@@ -1,8 +1,9 @@
-# dd_and_ca_fpga
+# Digital Design and Computer Architecture Exercises
 Exercises and examples from Digital Design and Computer Architecture - Harris &amp; Harris
 
 ## Exercises
-### 4.3 Write an HDL module that computes a four-input XOR function.  The input is a3:0, and the output is y. 
+### Exercise 4.3
+Write an HDL module that computes a four-input XOR function.  The input is a3:0, and the output is y. 
 
 ```systemverilog
 module exercise4_3(input  logic [3:0] a,
@@ -79,7 +80,8 @@ Pass: input = 1111 output = 0
         16 tests completed with          1 errors
 ```
 
-### 4.5 Write an HDL module called minority.  It receives three inputs, a, b, and c.  It produces one output, y, that is TRUE if at least two of the inputs are FALSE.
+### Exercise 4.5
+Write an HDL module called minority.  It receives three inputs, a, b, and c.  It produces one output, y, that is TRUE if at least two of the inputs are FALSE.
 [exercise4.5](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_5.sv):
 ```systemverilog
 module minority(input logic a, b, c,
