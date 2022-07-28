@@ -99,6 +99,7 @@ endmodule
 
 ### Exercise 4.6
 Write an HDL module for a hexadecimal seven-segment display decoder.  The decoder should handle the digits A, B, C, D, E and F as well as 0-9.
+[exercise4.6](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_6.sv):
 ```systemverilog
 module sevenseg(input  logic [3:0] digit,
                 output logic [7:0] y);
@@ -128,6 +129,7 @@ endmodule
 
 ### Exercise 4.7
 Write a self-checking testbench for Exercise 4.6.  Create a test vector file containing all 16 test cases.  Simulate the circuit and show that it works.  Introduce an error in the test vector file and show that the testbench reports a mismatch.
+[exercise4.7](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_7_tb.sv):
 ```systemverilog
 module exercise4_7();
   logic [3:0] digit;
@@ -169,7 +171,7 @@ module exercise4_7();
 endmodule
 ```
 
-test vectors: exercise4_7.tv:
+test vectors [exercise4.7.tv](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_7.tv):
 ```
 0000_01111111
 0001_00110000
