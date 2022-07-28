@@ -2,7 +2,7 @@
 Exercises and examples from Digital Design and Computer Architecture - Harris &amp; Harris
 
 ## Exercises
-4.3 Write an HDL module that computes a four-input XOR function.  The input is a3:0, and the output is y. 
+### 4.3 Write an HDL module that computes a four-input XOR function.  The input is a3:0, and the output is y. 
 
 ```systemverilog
 module exercise4_3(input  logic [3:0] a,
@@ -11,7 +11,7 @@ module exercise4_3(input  logic [3:0] a,
 endmodule
 ```
 
-4.4 Write a self-checking testbench for Exercise 4.3.  Create a test vector file containing all 16 test cases.  Simulate the circuit and show that it works.  Introduce an error in the test vector file and show that the testbench reports a mismatch.
+### 4.4 Write a self-checking testbench for Exercise 4.3.  Create a test vector file containing all 16 test cases.  Simulate the circuit and show that it works.  Introduce an error in the test vector file and show that the testbench reports a mismatch.
 
 [exercise4.4](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_4_tb.sv):
 ```systemverilog
@@ -54,7 +54,7 @@ module exercise4_3_tb();
 endmodule
 ```
 
-4.4 Simulate output `iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4`:
+### 4.4 Simulate output `iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4`:
 ```bash
 iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4
 WARNING: exercise4_4_tb.sv:15: $readmemb: Standard inconsistency, following 1364-2005.
@@ -76,4 +76,20 @@ Pass: input = 1011 output = 1
 Pass: input = 0111 output = 1
 Pass: input = 1111 output = 0
         16 tests completed with          1 errors
+```
+
+### 4.5 Write an HDL module called minority.  It receives three inputs, a, b, and c.  It produces one output, y, that is TRUE if at least two of the inputs are FALSE.
+[exercise4.5](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_5.sv):
+```systemverilog
+module minority(input logic a, b, c,
+                output logic y);
+  always_comb begin
+    if      ( ~a & ~b & c ) y = 1'b1;
+    else if ( ~a & b & ~c ) y = 1'b1;
+    else if ( a & ~b & ~c ) y = 1'b1;
+    else if ( ~a & ~b & ~c ) y = 1'b1;
+    else y = 1'b0;
+  end
+
+endmodule
 ```
