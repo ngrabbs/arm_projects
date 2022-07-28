@@ -13,6 +13,7 @@ endmodule
 
 4.4 Write a self-checking testbench for Exercise 4.3.  Create a test vector file containing all 16 test cases.  Simulate the circuit and show that it works.
 
+exercise4.4 [exercise4.4](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_4_tb.sv).
 ```module exercise4_3_tb();
   logic y, yexpected;
   logic [3:0] a;
