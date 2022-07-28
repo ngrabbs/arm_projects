@@ -11,7 +11,8 @@ module exercise4_3(input  logic [3:0] a,
 endmodule
 ```
 
-### 4.4 Write a self-checking testbench for Exercise 4.3.  Create a test vector file containing all 16 test cases.  Simulate the circuit and show that it works.  Introduce an error in the test vector file and show that the testbench reports a mismatch.
+### Exercise 4.4 
+Write a self-checking testbench for Exercise 4.3.  Create a test vector file containing all 16 test cases.  Simulate the circuit and show that it works.  Introduce an error in the test vector file and show that the testbench reports a mismatch.
 
 [exercise4.4](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_4_tb.sv):
 ```systemverilog
@@ -54,7 +55,7 @@ module exercise4_3_tb();
 endmodule
 ```
 
-### 4.4 Simulate output `iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4`:
+Simulate output `iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4`:
 ```bash
 iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4
 WARNING: exercise4_4_tb.sv:15: $readmemb: Standard inconsistency, following 1364-2005.
