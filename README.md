@@ -54,8 +54,8 @@ module exercise4_3_tb();
 endmodule
 ```
 
-Simulate output `iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4`:
-```
+4.4 Simulate output `iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4`:
+```bash
 iverilog -g2009 -o exercise4_4 exercise4_4_tb.sv exercise4_3.sv ; vvp ./exercise4_4
 WARNING: exercise4_4_tb.sv:15: $readmemb: Standard inconsistency, following 1364-2005.
 WARNING: exercise4_4_tb.sv:15: $readmemb(exercise4_4.tv): Not enough words in the file for the requested range [0:10000].
