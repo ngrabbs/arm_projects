@@ -1,9 +1,9 @@
 # Digital Design and Computer Architecture Exercises
 Exercises and examples from Digital Design and Computer Architecture - Harris &amp; Harris
 
-## Exercises
+## Chapter 4 exercises
 ### Exercise 4.3
-Write an HDL module that computes a four-input XOR function.  The input is a3:0, and the output is y. 
+Write an HDL module that computes a four-input XOR function.  The input is a[3:0] and the output is y. 
 
 ```systemverilog
 module exercise4_3(input  logic [3:0] a,
@@ -14,7 +14,6 @@ endmodule
 
 ### Exercise 4.4 
 Write a self-checking testbench for Exercise 4.3.  Create a test vector file containing all 16 test cases.  Simulate the circuit and show that it works.  Introduce an error in the test vector file and show that the testbench reports a mismatch.
-
 [exercise4.4](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_4_tb.sv):
 ```systemverilog
 module exercise4_3_tb();
@@ -171,7 +170,8 @@ module exercise4_7();
 endmodule
 ```
 
-test vectors [exercise4.7.tv](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_7.tv):
+test vectors
+[exercise4.7.tv](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_7.tv):
 ```
 0000_01111111
 0001_00110000
