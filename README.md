@@ -214,3 +214,27 @@ Pass: input = 1110 output = 01001111
 Pass: input = 1111 output = 01000111
         16 tests completed with          1 errors
 ```
+
+### Exercise 4.8
+Write an 8:1 multiplexer module called mux8 with inputs s[2:0], d0, d1, d2, d3, d4, d5, d6, d7, and output y.
+[exercise4.8](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_8.sv):
+```systemverilog
+module mux8(input logic [2:0] a,
+            input logic d0, d1, d2, d3, d4, d5, d6, d7,
+            output logic y);
+  assign y = (a ==? 3'b000) ? d0 :
+             (a ==? 3'b001) ? d1 :
+             (a ==? 3'b010) ? d2 :
+             (a ==? 3'b011) ? d3 :
+             (a ==? 3'b100) ? d4 :
+             (a ==? 3'b101) ? d5 :
+             (a ==? 3'b110) ? d6 :
+             (a ==? 3'b111) ? d7 :
+                    3'b000;
+endmodule
+```
+
+### Exercise 4.9
+Write a structural module to compute the logic function, y = a~b + ~b~c + ~abc, using multiplexer logic.  Use the 8:1 multiplexer from Exercise 4.8.
+```systemverilog
+```
