@@ -1,13 +1,10 @@
-module exercise4_7();
-  logic        clk, reset;
-  logic [3:0]  data;
-  logic [7:0]  s;
-  logic [7:0]  s_expected;
+module exercise4_9();
+  logic        a, b, c, y, y_expected, clk, reset;
   logic [31:0] vectornum, errors;
   logic [11:0] testvectors[10000:0];
 
   // dut
-  sevenseg dut(data, s);
+  ex4_9 dut(a, b, c, y);
 
   // generate clock
   always
@@ -20,7 +17,7 @@ module exercise4_7();
   // and pulse reset
   initial
     begin
-      $readmemb("exercise4_7.tv", testvectors);
+      $readmemb("exercise4_9.tv", testvectors);
       vectornum=0; errors=0;
       reset = 1; #27; reset = 0;
     end
@@ -28,17 +25,17 @@ module exercise4_7();
   // apply test vectors on rising edge of clk
   always @(posedge clk)
     begin
-      #1; {data, s_expected} = testvectors[vectornum];
+      #1; {a, b, c, y_expected} = testvectors[vectornum];
     end
 
   // check results on falling edge of clk
   always @(negedge clk)
     if (~reset) begin // skip during reset
-        if ( s !== s_expected) begin // check result
-          $display("Error: input = %b output = %b (%b expected)", data, s, s_expected);
+        if ( y !== y_expected) begin // check result
+          $display("Error: input = %b output = %b (%b expected)", {a, b, c}, y, y_expected);
           errors = errors + 1;
         end else begin
-          $display("Pass: input = %b output = %b", data, s);
+          $display("Pass: input = %b output = %b", {a, b, c}, y_expected);
         end
 
         vectornum = vectornum + 1;

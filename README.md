@@ -85,13 +85,7 @@ Write an HDL module called minority.  It receives three inputs, a, b, and c.  It
 ```systemverilog
 module minority(input logic a, b, c,
                 output logic y);
-  always_comb begin
-    if      ( ~a & ~b & c ) y = 1'b1;
-    else if ( ~a & b & ~c ) y = 1'b1;
-    else if ( a & ~b & ~c ) y = 1'b1;
-    else if ( ~a & ~b & ~c ) y = 1'b1;
-    else y = 1'b0;
-  end
+  assign y = ~a & ~b | ~a & ~c | ~b & ~c;
 
 endmodule
 ```
@@ -131,14 +125,22 @@ Write a self-checking testbench for Exercise 4.6.  Create a test vector file con
 [exercise4.7](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_7_tb.sv):
 ```systemverilog
 module exercise4_7();
-  logic [3:0] digit;
-  logic [7:0] y;
-  logic [7:0] yexpected;
+  logic        clk, reset;
+  logic [3:0]  data;
+  logic [7:0]  s;
+  logic [7:0]  s_expected;
   logic [31:0] vectornum, errors;
-  logic [11:0]  testvectors[10000:0];
+  logic [11:0] testvectors[10000:0];
 
   // dut
-  sevenseg dut(digit, y);
+  sevenseg dut(data, s);
+
+  // generate clock
+  always
+    begin
+      clk = 1; #5; clk = 0; #5;
+    end
+
 
   // at start of test, load vectors
   // and pulse reset
@@ -146,15 +148,23 @@ module exercise4_7();
     begin
       $readmemb("exercise4_7.tv", testvectors);
       vectornum=0; errors=0;
+      reset = 1; #27; reset = 0;
+    end
 
-      forever begin
-        {digit, yexpected} = testvectors[vectornum]; #10;
+  // apply test vectors on rising edge of clk
+  always @(posedge clk)
+    begin
+      #1; {data, s_expected} = testvectors[vectornum];
+    end
 
-        if ( y !== yexpected) begin // check result
-          $display("Error: input = %b output = %b (%b expected)", digit, y, yexpected);
+  // check results on falling edge of clk
+  always @(negedge clk)
+    if (~reset) begin // skip during reset
+        if ( s !== s_expected) begin // check result
+          $display("Error: input = %b output = %b (%b expected)", data, s, s_expected);
           errors = errors + 1;
         end else begin
-          $display("Pass: input = %b output = %b", digit, y);
+          $display("Pass: input = %b output = %b", data, s);
         end
 
         vectornum = vectornum + 1;
@@ -165,7 +175,6 @@ module exercise4_7();
           $finish;
         end
       end
-    end
 
 endmodule
 ```
@@ -219,7 +228,7 @@ Pass: input = 1111 output = 01000111
 Write an 8:1 multiplexer module called mux8 with inputs s[2:0], d0, d1, d2, d3, d4, d5, d6, d7, and output y.
 [exercise4.8](https://github.com/ngrabbs/dd_and_ca_fpga/blob/main/chapter4/exercise4_8.sv):
 ```systemverilog
-module mux8(input logic [2:0] a,
+module mux8_1(input logic [2:0] a,
             input logic d0, d1, d2, d3, d4, d5, d6, d7,
             output logic y);
   assign y = (a ==? 3'b000) ? d0 :
@@ -235,6 +244,27 @@ endmodule
 ```
 
 ### Exercise 4.9
-Write a structural module to compute the logic function, y = a~b + ~b~c + ~abc, using multiplexer logic.  Use the 8:1 multiplexer from Exercise 4.8.
+Write a structural module to compute the logic function, y = a~b + ~b~c + ~abc,
+using multiplexer logic.  Use the 8:1 multiplexer from Exercise 4.8.
 ```systemverilog
+module ex4_9(input  logic a, b, c,
+             output logic y);
+  mux8 #(1) mux8_1({a,b,c}, 1'b1, 1'b0, 1'b0, 1'b1,
+                            1'b1, 1'b1, 1'b0, 1'b0, y);
+endmodule
 ```
+
+### Exercise 4.10
+Repeat Exercise 4.9 using a 4:1 multiplexer and as many NOT gates as you need.
+
+### Exercise 4.11
+Section 4.5.4 pointed out that a synchronizer could be correctly
+describe with blocking assignments if the assignments were given in the proper
+order.  Think of a simple sequential circuit that cannot be correctly described with
+blocking assignments, regardless of order.
+
+### Exercise 4.12
+Write an HDL module for an eight-input priority circuit.
+
+### Exercise 4.13
+Write an HDL module for a 2:4 decoder.
