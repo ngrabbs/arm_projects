@@ -265,6 +265,90 @@ blocking assignments, regardless of order.
 
 ### Exercise 4.12
 Write an HDL module for an eight-input priority circuit.
+```systemverilog
+module priorityckt(input  logic [8:0] a,
+                   output logic [8:0] y);
+  always_comb
+    if      (a[7]) y = 8'b10000000;
+    else if (a[6]) y = 8'b01000000;
+    else if (a[5]) y = 8'b00100000;
+    else if (a[4]) y = 8'b00010000;
+    else if (a[3]) y = 8'b00001000;
+    else if (a[2]) y = 8'b00000100;
+    else if (a[1]) y = 8'b00000010;
+    else if (a[0]) y = 8'b00000001;
+    else           y = 8'b00000000;
+endmodule
+```
 
 ### Exercise 4.13
 Write an HDL module for a 2:4 decoder.
+```systemverilog
+module decoder2_4(input  logic [1:0] a,
+                  output logic [3:0] y);
+  always_comb
+    case (a)
+    2'b00: y = 4'b0001;
+    2'b01: y = 4'b0010;
+    2'b10: y = 4'b0100;
+    2'b11: y = 4'b1000;
+endmodule
+```
+
+### Exercise 4.14
+Write an HDL module for a 6:64 decoder using three instances of
+the 2:4 decoders from Exercise 4.13 and a bunch of three-input AND gates.
+```systemverilog
+
+```
+
+### Exercise 4.15
+Write HDL modules that implement the Boolean equations from Exercise 2.13.
+(a) y = ac + ~a~bc
+```systemverilog
+module ex4_15a(input  logic a, b,c,
+               output logic y);
+  y = (a & c) | (~a & ~b & c);
+endmodule
+```
+
+(b) y = ~a~b + ~ab~c + ~(a+~c)
+```systemverilog
+module ex4_15b(input  logic a, b, c,
+               output logic y);
+  y = (~a & ~b) | (~a & b & ~c) | ~(a | ~c);
+endmodule
+```
+
+(c) y = ~a~b~c~d + a~b~c + a~bc~d + abd + ~a~bc~d + b~cd + ~a
+```systemverilog
+module ex4_15c(input  logic a, b, c, d,
+               output logic y);
+  y = (~a & ~b & ~c & ~d) | (a & ~b & ~c) |
+      (a & ~b & c & ~d) | ( a & b & d) |
+      (~a & ~b & c & ~d) | (b & ~c & d) | ~a;
+endmodule
+```
+
+### Exercise 4.16
+Write an HDL module that implements the circuit from Exercise 2.26.
+```systemverilog
+module ex4_16(input  logic a, b, c, d, e,
+              output logic y);
+  y = ~(e & ~a & ~b & ~c & ~d);
+endmodule
+```
+
+### Exercise 4.17
+Write an HDL module that implements the circuit from Exercise 2.27.
+```systemverilog
+module ex_17(input  logic a, b, c, d, e, f, g,
+             output logic y);
+  n1 = ~(a & b & c);
+  n2 = ~(n1 & d);
+  n3 = (f & g);
+  n4 = ~(e | n3);
+  n5 = ~(n2 | n4);
+  y = ~(n5 & n5);
+endmodule
+```
