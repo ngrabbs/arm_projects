@@ -352,3 +352,62 @@ module ex_17(input  logic a, b, c, d, e, f, g,
   y = ~(n5 & n5);
 endmodule
 ```
+
+### Exercise 4.18
+Write an HDL module that implements the logic function from
+Exercise 2.28.  Pay careful attention to how you handle don't cares.
+```systemverilog
+module ex_18(input  logic a, b, c, d,
+             output logic y);
+  n1 = (b | c | ~d);
+  y = (a & n1);
+endmodule
+```
+
+### Exercise 4.19
+Write an HDL module that implements the logic function from
+Exercise 2.35.
+```systemverilog
+module ex4_19(input  logic [3:0] a,
+              output logic p, d);
+  always_comb
+    case (a)
+      4'b0000: {p, d} = 2'b00; // 0
+      4'b0001: {p, d} = 2'b00; // 1
+      4'b0010: {p, d} = 2'b01; // 2
+      4'b0011: {p, d} = 2'b11; // 3
+      4'b0100: {p, d} = 2'b00; // 4 
+      4'b0101: {p, d} = 2'b01; // 5
+      4'b0110: {p, d} = 2'b10; // 6
+      4'b0111: {p, d} = 2'b01; // 7
+      4'b1000: {p, d} = 2'b00; // 8
+      4'b1001: {p, d} = 2'b10; // 9
+      4'b1010: {p, d} = 2'b00; // 10
+      4'b1011: {p, d} = 2'b01; // 11
+      4'b1100: {p, d} = 2'b10; // 12
+      4'b1101: {p, d} = 2'b01; // 13
+      4'b1110: {p, d} = 2'b00; // 14
+      4'b1111: {p, d} = 2'b10; // 15
+    endcase
+endmodule
+```
+
+### Exercise 4.20
+Write an HDL module that implements the priority encoder from
+Exercise 2.36.
+```systemverilog
+module ex4_20(input  logic [7:0] a,
+              output logic [2:0] y,
+              output logic NONE);
+  assign y = (a ==? 8'b1xxxxxxx) ? 3'b111 :
+             (a ==? 8'bx1xxxxxx) ? 3'b110 :
+             (a ==? 8'bxx1xxxxx) ? 3'b101 :
+             (a ==? 8'bxxx1xxxx) ? 3'b100 :
+             (a ==? 8'bxxxx1xxx) ? 3'b011 :
+             (a ==? 8'bxxxxx1xx) ? 3'b010 :
+             (a ==? 8'bxxxxxx1x) ? 3'b001 :
+             (a ==? 8'bxxxxxxx1) ? 3'b000 :
+                                   3'b000;
+  assign NONE = (a ==? 8'b00000000) ? 1'b1 : 1'b0;
+endmodule  
+```
