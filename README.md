@@ -398,16 +398,93 @@ Exercise 2.36.
 ```systemverilog
 module ex4_20(input  logic [7:0] a,
               output logic [2:0] y,
-              output logic NONE);
-  assign y = (a ==? 8'b1xxxxxxx) ? 3'b111 :
-             (a ==? 8'bx1xxxxxx) ? 3'b110 :
-             (a ==? 8'bxx1xxxxx) ? 3'b101 :
-             (a ==? 8'bxxx1xxxx) ? 3'b100 :
-             (a ==? 8'bxxxx1xxx) ? 3'b011 :
-             (a ==? 8'bxxxxx1xx) ? 3'b010 :
-             (a ==? 8'bxxxxxx1x) ? 3'b001 :
-             (a ==? 8'bxxxxxxx1) ? 3'b000 :
+              output logic none);
+  assign y = (a ==? 8'b1???????) ? 3'b111 :
+             (a ==? 8'b01??????) ? 3'b110 :
+             (a ==? 8'b001?????) ? 3'b101 :
+             (a ==? 8'b0001????) ? 3'b100 :
+             (a ==? 8'b00001???) ? 3'b011 :
+             (a ==? 8'b000001??) ? 3'b010 :
+             (a ==? 8'b0000001?) ? 3'b001 :
+             (a ==? 8'b00000001) ? 3'b000 :
                                    3'b000;
-  assign NONE = (a ==? 8'b00000000) ? 1'b1 : 1'b0;
+  assign none = (a ==? 8'b00000000) ? 1'b1 : 1'b0;
 endmodule  
+```
+
+### Exercise 4.21
+Write an HDL module that implements the modified priority encoder from
+Exercise 2.37.
+```systemverilog
+module ex4_21(input  logic [7:0] a,
+              output logic [2:0] y, z,
+              output logic none);
+  always_comb
+  begin
+    casez (a)
+      8'b00000000: begin y = 3'd0; none = 1'b1; end
+      8'b00000001: begin y = 3'd0; none = 1'b1; end
+      8'b0000001?: begin y = 3'd1; none = 1'b1; end
+      8'b000001??: begin y = 3'd2; none = 1'b1; end
+      8'b00001???: begin y = 3'd3; none = 1'b1; end
+      8'b0001????: begin y = 3'd4; none = 1'b1; end
+      8'b001?????: begin y = 3'd5; none = 1'b1; end
+      8'b01??????: begin y = 3'd6; none = 1'b1; end
+      8'b1???????: begin y = 3'd7; none = 1'b1; end
+    endcase
+
+    casez (a)
+      8'b00000011: z = 3'b000;
+      8'b00000101: z = 3'b000;
+      8'b00001001: z = 3'b000;
+      8'b00010001: z = 3'b000;
+      8'b00100001: z = 3'b000;
+      8'b01000001: z = 3'b000;
+      8'b10000001: z = 3'b000;
+      8'b0000011?: z = 3'b001;
+      8'b0000101?: z = 3'b001;
+      8'b0001001?: z = 3'b001;
+      8'b0010001?: z = 3'b001;
+      8'b0100001?: z = 3'b001;
+      8'b1000001?: z = 3'b001;
+      8'b000011??: z = 3'b010;
+      8'b000101??: z = 3'b010;
+      8'b001001??: z = 3'b010;
+      8'b010001??: z = 3'b010;
+      8'b100001??: z = 3'b010;
+      8'b00011???: z = 3'b011;
+      8'b00101???: z = 3'b011;
+      8'b01001???: z = 3'b011;
+      8'b10001???: z = 3'b011;
+      8'b0011????: z = 3'b100;
+      8'b0101????: z = 3'b100;
+      8'b1001????: z = 3'b100;
+      8'b011?????: z = 3'b101;
+      8'b101?????: z = 3'b101;
+      8'b11??????: z = 3'b110;
+      default:     z = 3'b000;
+    endcase
+  end
+endmodule
+```
+
+### Exercise 4.22
+Write an HDL module that implements the binary-to-thermometer
+code converter from Exercise 2.38.
+```systemverilog
+module ex4_22(input  logic [2:0] a,
+              output logic [7:0] y);
+  always_comb
+    case (a)
+      3'b000: y = 8'b00000001;
+      3'b001: y = 8'b00000011;
+      3'b010: y = 8'b00000111;
+      3'b011: y = 8'b00001111;
+      3'b100: y = 8'b00011111;
+      3'b101: y = 8'b00111111;
+      3'b110: y = 8'b01111111;
+      3'b111: y = 8'b11111111;
+    endcase
+  end
+endmodule
 ```
