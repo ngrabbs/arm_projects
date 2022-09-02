@@ -485,6 +485,84 @@ module ex4_22(input  logic [2:0] a,
       3'b110: y = 8'b01111111;
       3'b111: y = 8'b11111111;
     endcase
-  end
+endmodule
+```
+
+### Exercise 4.23
+Write an HDL module implementing the days-in-month function
+from Question 2.2.
+```systemverilog
+module ex4_32(input  logic [3:0] month,
+              output logic       y);
+  always_comb
+    casez (month)
+      1:       1'b1;
+      2:       1'b0;
+      3:       1'b1;
+      4:       1'b0;
+      5:       1'b1;
+      6:       1'b0;
+      7:       1'b1;
+      8:       1'b1;
+      9:       1'b0;
+      10:      1'b1;
+      11:      1'b0;
+      12:      1'b1;
+      default: 1'b0;
+    endcase
+endmodule
+```
+
+### Exercise 4.24
+Sketch the state transition diagram for the FSM described by the
+following HDL code.
+
+### Exercise 4.25
+Sketch the state transition diagram for the FSM described by the
+following HDL code.  And FSM of this nature is used in a branch predictor on some
+microprocessors.
+
+### Exercise 4.26
+Write an HDL module for an SR latch.
+```systemverilog
+module srlatch(input  logic clk,
+               input  logic d,
+               output logic q);
+  
+
+endmodule
+```
+
+### Exercise 4.27
+Write an HDL module for a JK flip-flop.  The flip-flop has inputs,
+clk, J and K, and output Q.  On the rising edge of the clock, Q keeps its old value
+if J = K = 0.  It sets Q to 1 if J = 1, resets Q to 0 if K = 1, and inverts Q if J = K = 1;
+```systemverilog
+module jkflop(input  logic clk, j, j
+            output logic q);
+  always @(posedge clk)
+    case ({j, k})
+      2'b01: q <= 1'b0;
+      2'b10: q <= 1'b1;
+      2'b11: q <= ~q;
+    endcase
+endmodule          
+)
+```
+
+### Exercise 4.28
+Write an HDL module for the latch from Figure 3.18.  Use one
+assignment statement for each gate.  Specify delays of 1 unit or 1 ns to each gate.
+Simulate the latch and show that it operates correctly.  Then increase the inverter
+delay.  How long doe sthe delay have to be before a race condition causes the latch
+to malfunction?
+```systemverilog
+module latch(input  logic clk,
+             input  logic d,
+             output logic q);
+  always @(posedge clk)
+    n1 = (d & clk);
+    n2 = (~clk & q);
+    q = (n1 | n2);
 endmodule
 ```
