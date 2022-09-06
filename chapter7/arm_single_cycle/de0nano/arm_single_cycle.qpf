@@ -1,0 +1,6 @@
+DATE = "11:16:58 September 05, 2022"
+QUARTUS_VERSION = "16.0.2"
+
+# Revisions
+
+PROJECT_REVISION = "arm_single_cycle"
