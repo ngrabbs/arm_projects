@@ -1,3 +1,4 @@
+/* verilator lint_off UNUSED */ // TODO: Remove this
 module datapath(input  logic        clk, reset,
                 input  logic [1:0]  RegSrc,
                 input  logic        RegWrite,
@@ -8,7 +9,7 @@ module datapath(input  logic        clk, reset,
                 input  logic        PCSrc,
                 output logic [3:0]  ALUFlags,
                 output logic [31:0] PC,
-                input  logic [31:0] Instr,
+                input  logic [31:0] Instr, // TODO: verilator thinks this is unused
                 output logic [31:0] ALUResult, WriteData,
                 input  logic [31:0] ReadData);
   logic [31:0] PCNext, PCPlus4, PCPlus8;

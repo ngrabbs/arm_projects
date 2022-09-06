@@ -1,3 +1,4 @@
+/* verilator lint_off VARHIDDEN */
 module regfile(input  logic        clk,
                input  logic        we3,
                input  logic [3:0]  ra1, ra2, wa3,

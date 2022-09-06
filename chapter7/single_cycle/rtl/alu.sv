@@ -1,3 +1,5 @@
+/* verilator lint_off WIDTH */ // TODO remove once fixed
+/* verilator lint_off UNUSED */ // TODO remove once fixed
 module alu(input  logic [31:0] SrcA, SrcB,
            input  logic [1:0]  ALUControl,
            output logic [31:0] ALUResult,
@@ -7,11 +9,11 @@ module alu(input  logic [31:0] SrcA, SrcB,
   logic V, C, N, Z;
 
   assign condinvb = ALUControl[0] ? ~SrcB : SrcB;
-  assign {C, sum} = SrcA + condinvb + ALUControl[0];
+  assign {C, sum} = SrcA + condinvb + ALUControl[0]; // TODO I dont know how to fix this
   assign V = (~ALUControl[1] & (SrcA[31] ^ sum[31]) & ~(ALUControl[0] ^ SrcA[31] ^ SrcB[31]));
   //assign C = (~ALUControl[1] & sum[32]) ? 1'b1 : 1'b0;
   assign N = ALUResult[31];
-  assign Z = (ALUResult ==? 0) ? 1'b1 : 1'b0;
+  assign Z = (ALUResult == 0) ? 1'b1 : 1'b0;
 
 
   always_comb
@@ -23,5 +25,5 @@ module alu(input  logic [31:0] SrcA, SrcB,
 
 //  assign ALUFlags = 4'b0000;
 //  assign ALUFlags = {V, C, N, Z};
-  assign ALUFlags = {N, Z, C, Z};
+  assign ALUFlags = {N, Z, C, Z}; // TODO verilator says V is unused
 endmodule
