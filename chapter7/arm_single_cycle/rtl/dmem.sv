@@ -4,11 +4,12 @@ module dmem(input  logic        clk, we,
             input  logic [31:0] a, wd, // TODO: verilator thinks a is unused why?
             output logic [31:0] rd);
 
-  logic [31:0] RAM[63:0];
+//  logic [31:0] RAM[63:0];
+  logic [31:0] RAM[1:0];
 
   // TODO: verilator is complaining about this
-  assign rd = RAM[a[31:2]]; // word aligned
+  assign rd = RAM[a[31:0]]; // word aligned
 
   always_ff @(posedge clk)
-    if (we) RAM[a[31:2]] <= wd;
+    if (we) RAM[a[31:0]] <= wd;
 endmodule

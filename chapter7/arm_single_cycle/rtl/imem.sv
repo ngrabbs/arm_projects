@@ -25,5 +25,5 @@ module imem(input  logic [31:0] a, // TODO: verilator thinks a is unused, why?
   end
 
   // TODO: verilator is complaining about this
-  assign rd = RAM[a[31:2]]; // word aligned
+  assign rd = RAM[a[31:0]]; // word aligned
 endmodule
