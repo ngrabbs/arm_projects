@@ -1,9 +1,10 @@
 /* verilator lint_off UNUSED */
 module cpu_main(input  logic        clk, reset,
-           output logic [31:0] DataAdr);
+                output logic [31:0] WriteData, DataAdr,
+                output logic        MemWrite);
 
-  logic [31:0] PC, Instr, ReadData, WriteData;
-  logic MemWrite;
+  logic [31:0] PC, Instr, ReadData;
+//  logic MemWrite;
 
   // instantiate processor and memories
   arm arm(clk, reset, PC, Instr, MemWrite, DataAdr,

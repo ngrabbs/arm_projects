@@ -45,9 +45,13 @@ module cpusys_goboard (
 
 // assign output signals to FPGA pins
 logic        clk;
+logic        MemWrite;
 //logic        halt;
 /* verilator lint_off UNUSED */
 logic [31:0] out_value;
+logic [31:0] dataadr;
+logic [3:0]  low_seg;
+logic [3:0]  high_seg;
 //byte_t      out_value;   // output byte from OUT opcode
 
 // reset
@@ -84,25 +88,17 @@ end
 //assign o_LED_2      = (slow_clk[18:15] == '0) ? halt : 1'b0;    // green clock pulse
 
 // === instantiate main module
-/*
-cpu_main main(
-    .clk_en_i(clk_en),
-    .reset_i(reset),
-    .out_strobe_o(out_strobe),
-    .out_value_o(out_value),
-    .halt_o(halt),
-    .clk(clk)
-);
-*/
 cpu_main main(
     .clk(clk_en),
     .reset(reset),
-    .DataAdr(out_value)
+    .WriteData(out_value),
+    .DataAdr(dataadr),
+    .MemWrite(MemWrite)
 );
 
 goboard_7seg hexout1(
     .clk(clk),
-    .value_i(out_value[7:4]),
+    .value_i(high_seg),
     .ledA_o(o_Segment1_A),
     .ledB_o(o_Segment1_B),
     .ledC_o(o_Segment1_C),
@@ -114,7 +110,7 @@ goboard_7seg hexout1(
 
 goboard_7seg hexout2(
     .clk(clk),
-    .value_i(out_value[3:0]),
+    .value_i(low_seg),
     .ledA_o(o_Segment2_A),
     .ledB_o(o_Segment2_B),
     .ledC_o(o_Segment2_C),
@@ -124,7 +120,18 @@ goboard_7seg hexout2(
     .ledG_o(o_Segment2_G)
 );
 
-assign o_LED_1 = 1'b0;
+always_ff @(posedge clk) begin
+    if (dataadr === 32'h00000014 && MemWrite) high_seg <= out_value[7:4];
+    if (dataadr === 32'h00000014 && MemWrite) low_seg  <= out_value[3:0];
+end
+
+/*
+assign o_LED_1 = out_value[3];
+assign o_LED_2 = out_value[2];
+assign o_LED_3 = out_value[1];
+assign o_LED_4 = out_value[0];
+*/
+assign o_LED_1 = 1'b0; // led's are super bright
 assign o_LED_2 = 1'b0;
 assign o_LED_3 = 1'b0;
 assign o_LED_4 = 1'b0;
