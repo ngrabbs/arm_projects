@@ -60,7 +60,7 @@ logic               reset_ff0, reset_ff1, reset;
 // === clock setup
 always_comb         clk = CLK;
 logic               clk_en;
-logic [18:0]        slow_clk;
+logic [19:0]        slow_clk;
 
 // reset button synchronizer
 always_ff @(posedge clk) begin
