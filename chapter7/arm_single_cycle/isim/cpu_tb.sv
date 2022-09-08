@@ -32,13 +32,10 @@ module cpu_tb();
   always @(negedge clk)
   begin
     if (main.arm.Instr !== 32'bx ) begin
-    $display("PC=%h Instr=%h DataAdr=%h MemWrite=%b WriteData=%h", main.arm.PC, main.arm.Instr, DataAdr, MemWrite, WriteData);
+      $display("PC=%h Instr=%h DataAdr=%h MemWrite=%b WriteData=%h RegWrite=%h", main.arm.PC, main.arm.Instr, DataAdr, MemWrite, WriteData, main.arm.RegWrite);
+    end else begin
+      $display("Simulation ended");
+      $finish;
     end
-    /*
-    if (main.arm.Instr === 32'bx ) begin
-        $display("Simulation ended");
-        $finish;
-      end
-      */
-    end
+  end
 endmodule

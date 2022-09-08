@@ -4,7 +4,8 @@ input  logic [3:0] ALUFlags,
 input  logic [1:0] FlagW,
 input  logic       PCS, RegW, MemW,
 output logic       PCSrc, RegWrite,
-                   MemWrite);
+                   MemWrite,
+input  logic       NoWrite);
 
   logic [1:0] FlagWrite;
   logic [3:0] Flags;
@@ -18,7 +19,7 @@ output logic       PCSrc, RegWrite,
   // write controls are condititional
   condcheck cc(Cond, Flags, CondEx);
   assign FlagWrite = FlagW & {2{CondEx}};
-  assign RegWrite  = RegW  & CondEx;
+  assign RegWrite  = (RegW  & CondEx) & ~NoWrite;
   assign MemWrite  = MemW  & CondEx;
   assign PCSrc     = PCS   & CondEx;
 endmodule
