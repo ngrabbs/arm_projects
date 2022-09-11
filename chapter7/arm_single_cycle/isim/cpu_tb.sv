@@ -4,12 +4,13 @@
 module cpu_tb();
   logic        clk;
   logic        reset;
-  logic [31:0] WriteData, DataAdr;
+  logic [31:0] WriteData;
+  logic [31:0] DataAdr;
   logic        MemWrite;
 
   // instantiate device to be tested
 //  cpu_main dut(clk, reset, WriteData, DataAdr, MemWrite);
-  cpu_main main(clk, reset, WriteData, DataAdr, MemWrite);
+  cpu_main main(clk, clk, reset, WriteData, DataAdr, MemWrite);
 
   // generate clock to sequence tests
   always
@@ -24,8 +25,6 @@ module cpu_tb();
     $dumpvars(0, WriteData);
     reset = 1; #22; reset = 0;
   end
-
-
 
   // check that 7 gets written to address 0x64
   // at end of program

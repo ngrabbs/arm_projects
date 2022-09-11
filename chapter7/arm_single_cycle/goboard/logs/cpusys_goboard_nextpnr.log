@@ -1,0 +1,970 @@
+Info: constrained 'CLK' to bel 'X0/Y8/io1'
+Info: constrained 'o_LED_1' to bel 'X13/Y6/io1'
+Info: constrained 'o_LED_2' to bel 'X13/Y7/io0'
+Info: constrained 'o_LED_3' to bel 'X13/Y7/io1'
+Info: constrained 'o_LED_4' to bel 'X13/Y8/io0'
+Info: constrained 'i_Switch_1' to bel 'X13/Y4/io1'
+Warning: unmatched constraint 'i_Switch_2' (on line 26)
+Warning: unmatched constraint 'i_Switch_3' (on line 27)
+Warning: unmatched constraint 'i_Switch_4' (on line 28)
+Info: constrained 'o_Segment1_A' to bel 'X0/Y13/io1'
+Info: constrained 'o_Segment1_B' to bel 'X0/Y13/io0'
+Info: constrained 'o_Segment1_C' to bel 'X5/Y17/io1'
+Info: constrained 'o_Segment1_D' to bel 'X6/Y17/io0'
+Info: constrained 'o_Segment1_E' to bel 'X6/Y17/io1'
+Info: constrained 'o_Segment1_F' to bel 'X0/Y14/io1'
+Info: constrained 'o_Segment1_G' to bel 'X0/Y14/io0'
+Info: constrained 'o_Segment2_A' to bel 'X1/Y17/io1'
+Info: constrained 'o_Segment2_B' to bel 'X2/Y17/io1'
+Info: constrained 'o_Segment2_C' to bel 'X3/Y17/io1'
+Info: constrained 'o_Segment2_D' to bel 'X4/Y17/io1'
+Info: constrained 'o_Segment2_E' to bel 'X5/Y17/io0'
+Info: constrained 'o_Segment2_F' to bel 'X0/Y12/io0'
+Info: constrained 'o_Segment2_G' to bel 'X4/Y17/io0'
+Warning: unmatched constraint 'i_UART_RX' (on line 48)
+Warning: unmatched constraint 'o_UART_TX' (on line 49)
+Warning: unmatched constraint 'o_VGA_HSync' (on line 52)
+Warning: unmatched constraint 'o_VGA_VSync' (on line 53)
+Warning: unmatched constraint 'o_VGA_Red_0' (on line 54)
+Warning: unmatched constraint 'o_VGA_Red_1' (on line 55)
+Warning: unmatched constraint 'o_VGA_Red_2' (on line 56)
+Warning: unmatched constraint 'o_VGA_Grn_0' (on line 57)
+Warning: unmatched constraint 'o_VGA_Grn_1' (on line 58)
+Warning: unmatched constraint 'o_VGA_Grn_2' (on line 59)
+Warning: unmatched constraint 'o_VGA_Blu_0' (on line 60)
+Warning: unmatched constraint 'o_VGA_Blu_1' (on line 61)
+Warning: unmatched constraint 'o_VGA_Blu_2' (on line 62)
+Warning: unmatched constraint 'io_PMOD_1' (on line 65)
+Warning: unmatched constraint 'io_PMOD_2' (on line 66)
+Warning: unmatched constraint 'io_PMOD_3' (on line 67)
+Warning: unmatched constraint 'io_PMOD_4' (on line 68)
+Warning: unmatched constraint 'io_PMOD_7' (on line 69)
+Warning: unmatched constraint 'io_PMOD_8' (on line 70)
+Warning: unmatched constraint 'io_PMOD_9' (on line 71)
+Warning: unmatched constraint 'io_PMOD_10' (on line 72)
+
+Info: Packing constants..
+Info: Packing IOs..
+Info: Packing LUT-FFs..
+Info:      351 LCs used as LUT4 only
+Info:       69 LCs used as LUT4 and DFF
+Info: Packing non-LUT FFs..
+Info:      146 LCs used as DFF only
+Info: Packing carries..
+Info:        1 LCs used as CARRY only
+Info: Packing indirect carry+LUT pairs...
+Info:        0 LUTs merged into carry LCs
+Info: Packing RAMs..
+Info: Placing PLLs..
+Info: Packing special functions..
+Info: Packing PLLs..
+Info: Promoting globals..
+Info: promoting clk_en (fanout 145)
+Info: promoting CLK$SB_IO_IN (fanout 72)
+Info: promoting MemWrite [logic] (fanout 76)
+Info: promoting reset [reset] (fanout 54)
+Info: promoting main.arm.dp.alu.condinvb_SB_LUT4_O_10_I2[0] [logic] (fanout 47)
+Info: promoting main.arm.dp.alu.SrcA_SB_LUT4_O_10_I2[2] [logic] (fanout 33)
+Info: promoting main.arm.dp.alu.condinvb_SB_LUT4_O_30_I3_SB_LUT4_I1_O [cen] (fanout 32)
+Info: promoting main.arm.dp.alu.condinvb_SB_LUT4_O_30_I3_SB_LUT4_I1_I2_SB_LUT4_O_1_I3_SB_LUT4_I2_O [cen] (fanout 32)
+Info: Constraining chains...
+Info:        4 LCs used to legalise carry chains.
+Info: Checksum: 0xbaf875ec
+
+Info: Annotating ports with timing budgets for target frequency 12.00 MHz
+Info: Checksum: 0xf47701d0
+
+Info: Device utilisation:
+Info: 	         ICESTORM_LC:   573/ 1280    44%
+Info: 	        ICESTORM_RAM:     1/   16     6%
+Info: 	               SB_IO:    20/  112    17%
+Info: 	               SB_GB:     8/    8   100%
+Info: 	        ICESTORM_PLL:     0/    1     0%
+Info: 	         SB_WARMBOOT:     0/    1     0%
+
+Info: Placed 20 cells based on constraints.
+Info: Creating initial analytic placement for 473 cells, random placement wirelen = 6919.
+Info:     at initial placer iter 0, wirelen = 187
+Info:     at initial placer iter 1, wirelen = 159
+Info:     at initial placer iter 2, wirelen = 130
+Info:     at initial placer iter 3, wirelen = 156
+Info: Running main analytical placer.
+Info:     at iteration #1, type ALL: wirelen solved = 135, spread = 2935, legal = 3257; time = 0.01s
+Info:     at iteration #2, type ALL: wirelen solved = 219, spread = 2857, legal = 3071; time = 0.01s
+Info:     at iteration #3, type ALL: wirelen solved = 249, spread = 2503, legal = 2772; time = 0.01s
+Info:     at iteration #4, type ALL: wirelen solved = 213, spread = 2337, legal = 2816; time = 0.01s
+Info:     at iteration #5, type ALL: wirelen solved = 267, spread = 2434, legal = 2648; time = 0.01s
+Info:     at iteration #6, type ALL: wirelen solved = 371, spread = 2233, legal = 2600; time = 0.01s
+Info:     at iteration #7, type ALL: wirelen solved = 325, spread = 2250, legal = 2864; time = 0.01s
+Info:     at iteration #8, type ALL: wirelen solved = 324, spread = 2186, legal = 2692; time = 0.01s
+Info:     at iteration #9, type ALL: wirelen solved = 305, spread = 2162, legal = 2429; time = 0.01s
+Info:     at iteration #10, type ALL: wirelen solved = 455, spread = 2165, legal = 2722; time = 0.01s
+Info:     at iteration #11, type ALL: wirelen solved = 398, spread = 2223, legal = 2525; time = 0.01s
+Info:     at iteration #12, type ALL: wirelen solved = 459, spread = 2150, legal = 2522; time = 0.01s
+Info:     at iteration #13, type ALL: wirelen solved = 421, spread = 2039, legal = 2444; time = 0.01s
+Info:     at iteration #14, type ALL: wirelen solved = 502, spread = 1920, legal = 2261; time = 0.01s
+Info:     at iteration #15, type ALL: wirelen solved = 555, spread = 2060, legal = 2408; time = 0.01s
+Info:     at iteration #16, type ALL: wirelen solved = 547, spread = 1951, legal = 2315; time = 0.05s
+Info:     at iteration #17, type ALL: wirelen solved = 575, spread = 2075, legal = 2371; time = 0.01s
+Info:     at iteration #18, type ALL: wirelen solved = 648, spread = 1909, legal = 2277; time = 0.01s
+Info:     at iteration #19, type ALL: wirelen solved = 615, spread = 2262, legal = 2497; time = 0.01s
+Info: HeAP Placer Time: 0.21s
+Info:   of which solving equations: 0.11s
+Info:   of which spreading cells: 0.01s
+Info:   of which strict legalisation: 0.08s
+
+Info: Running simulated annealing placer for refinement.
+Info:   at iteration #1: temp = 0.000000, timing cost = 234, wirelen = 2261
+Info:   at iteration #5: temp = 0.000000, timing cost = 214, wirelen = 1952
+Info:   at iteration #10: temp = 0.000000, timing cost = 188, wirelen = 1830
+Info:   at iteration #15: temp = 0.000000, timing cost = 187, wirelen = 1764
+Info:   at iteration #20: temp = 0.000000, timing cost = 189, wirelen = 1718
+Info:   at iteration #23: temp = 0.000000, timing cost = 185, wirelen = 1708 
+Info: SA placement time 0.13s
+
+Info: Max frequency for clock       'clk_en_$glb_clk': 50.07 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock 'CLK$SB_IO_IN_$glb_clk': 210.53 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> posedge CLK$SB_IO_IN_$glb_clk: 1.62 ns
+Info: Max delay posedge CLK$SB_IO_IN_$glb_clk -> <async>                      : 3.41 ns
+Info: Max delay posedge CLK$SB_IO_IN_$glb_clk -> posedge clk_en_$glb_clk      : 6.47 ns
+Info: Max delay posedge clk_en_$glb_clk       -> posedge CLK$SB_IO_IN_$glb_clk: 20.91 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 62421,  63406) |*****+
+Info: [ 63406,  64391) |******+
+Info: [ 64391,  65376) |**************+
+Info: [ 65376,  66361) |*************+
+Info: [ 66361,  67346) |**********+
+Info: [ 67346,  68331) |***************************+
+Info: [ 68331,  69316) |*************+
+Info: [ 69316,  70301) |*+
+Info: [ 70301,  71286) |***+
+Info: [ 71286,  72271) |****************+
+Info: [ 72271,  73256) |**********+
+Info: [ 73256,  74241) |*******+
+Info: [ 74241,  75226) |********+
+Info: [ 75226,  76211) |********************+
+Info: [ 76211,  77196) |******************+
+Info: [ 77196,  78181) |***************************************+
+Info: [ 78181,  79166) |******+
+Info: [ 79166,  80151) |*************************************+
+Info: [ 80151,  81136) |**************+
+Info: [ 81136,  82121) |************************************************************ 
+Info: Checksum: 0x310cd0af
+Info: Running timing-driven placement optimisation...
+Info:    Iteration 0...
+Info:    Iteration 1...
+Info:    Iteration 2...
+Info:    Iteration 3...
+Info:    Iteration 4...
+Info:    Iteration 5...
+Info:    Iteration 6...
+Info:    Iteration 7...
+Info:    Iteration 8...
+Info:    Iteration 9...
+Info:    Iteration 10...
+Info:    Iteration 11...
+Info:    Iteration 12...
+Info:    Iteration 13...
+Info:    Iteration 14...
+Info:    Iteration 15...
+Info:    Iteration 16...
+Info:    Iteration 17...
+Info:    Iteration 18...
+Info:    Iteration 19...
+Info:    Iteration 20...
+Info:    Iteration 21...
+Info:    Iteration 22...
+Info:    Iteration 23...
+Info:    Iteration 24...
+Info:    Iteration 25...
+Info:    Iteration 26...
+Info:    Iteration 27...
+Info:    Iteration 28...
+Info:    Iteration 29...
+
+Info: Routing..
+Info: Setting up routing queue.
+Info: Routing 1637 arcs.
+Info:            |   (re-)routed arcs  |   delta    | remaining|       time spent     |
+Info:    IterCnt |  w/ripup   wo/ripup |  w/r  wo/r |      arcs| batch(sec) total(sec)|
+Info:       1000 |      194        805 |  194   805 |       867|       0.16       0.16|
+Info:       2000 |      528       1378 |  334   573 |       278|       0.07       0.23|
+Info:       2501 |      731       1676 |  203   298 |         0|       0.05       0.28|
+Info: Routing complete.
+Info: Router1 time 0.28s
+Info: Checksum: 0x28c1e458
+
+Info: Critical path report for clock 'clk_en_$glb_clk' (posedge -> posedge):
+Info: curr total
+Info:  0.5  0.5  Source main.arm.dp.pcreg.d_SB_LUT4_O_29_LC.O
+Info:  1.3  1.8    Net main.PC[2] budget 6.552000 ns (7,8) -> (5,7)
+Info:                Sink main.arm.c.cl.cc.zero_SB_LUT4_I3_I1_SB_LUT4_O_1_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/imem.sv:10.25-10.26
+Info:                  ../rtl/cpu_main.sv:11.8-11.23
+Info:  0.3  2.1  Source main.arm.c.cl.cc.zero_SB_LUT4_I3_I1_SB_LUT4_O_1_LC.O
+Info:  1.3  3.4    Net main.arm.c.cl.cc.zero_SB_LUT4_I3_I1[2] budget 6.552000 ns (5,7) -> (8,8)
+Info:                Sink main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.I1
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  3.8  Source main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  0.6  4.4    Net main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2[1] budget 6.552000 ns (8,8) -> (8,8)
+Info:                Sink main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_I2_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  4.8  Source main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_I2_LC.O
+Info:  1.3  6.0    Net main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_I2_O[0] budget 6.825000 ns (8,8) -> (6,5)
+Info:                Sink main.arm.dp.srcbmux.d0_SB_LUT4_O_6_I0_SB_LUT4_O_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  6.4  Source main.arm.dp.srcbmux.d0_SB_LUT4_O_6_I0_SB_LUT4_O_LC.O
+Info:  1.3  7.7    Net main.arm.dp.srcbmux.d0_SB_LUT4_O_6_I0[0] budget 5.460000 ns (6,5) -> (4,6)
+Info:                Sink main.arm.dp.srcbmux.d0_SB_LUT4_O_6_LC.I0
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  8.1  Source main.arm.dp.srcbmux.d0_SB_LUT4_O_6_LC.O
+Info:  1.6  9.8    Net out_value[2] budget 5.460000 ns (4,6) -> (2,11)
+Info:                Sink main.arm.dp.alu.condinvb_SB_LUT4_O_28_LC.I1
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:51.14-51.23
+Info:  0.4 10.2  Source main.arm.dp.alu.condinvb_SB_LUT4_O_28_LC.O
+Info:  1.3 11.5    Net main.arm.dp.alu.condinvb[2] budget 5.460000 ns (2,11) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_5_LC.I1
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:7.16-7.24
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:  0.3 11.8  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_5_LC.COUT
+Info:  0.0 11.8    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[3] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_4_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 11.9  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_4_LC.COUT
+Info:  0.0 11.9    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[4] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_3_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.0  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_3_LC.COUT
+Info:  0.0 12.0    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[5] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_2_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.2  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_2_LC.COUT
+Info:  0.0 12.2    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[6] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_1_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.3  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_1_LC.COUT
+Info:  0.2 12.5    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[7] budget 0.190000 ns (2,7) -> (2,8)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.6  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_LC.COUT
+Info:  0.0 12.6    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[8] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_1_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.7  Source main.arm.dp.alu.sum_SB_LUT4_O_1_LC.COUT
+Info:  0.0 12.7    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[9] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.9  Source main.arm.dp.alu.sum_SB_LUT4_O_LC.COUT
+Info:  0.0 12.9    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[10] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_24_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.0  Source main.arm.dp.alu.sum_SB_LUT4_O_24_LC.COUT
+Info:  0.0 13.0    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[11] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_23_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.1  Source main.arm.dp.alu.sum_SB_LUT4_O_23_LC.COUT
+Info:  0.0 13.1    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[12] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_22_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.2  Source main.arm.dp.alu.sum_SB_LUT4_O_22_LC.COUT
+Info:  0.0 13.2    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[13] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_21_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.4  Source main.arm.dp.alu.sum_SB_LUT4_O_21_LC.COUT
+Info:  0.0 13.4    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[14] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_20_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.5  Source main.arm.dp.alu.sum_SB_LUT4_O_20_LC.COUT
+Info:  0.2 13.7    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[15] budget 0.190000 ns (2,8) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_19_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.8  Source main.arm.dp.alu.sum_SB_LUT4_O_19_LC.COUT
+Info:  0.0 13.8    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[16] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_18_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.9  Source main.arm.dp.alu.sum_SB_LUT4_O_18_LC.COUT
+Info:  0.0 13.9    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[17] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_17_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.1  Source main.arm.dp.alu.sum_SB_LUT4_O_17_LC.COUT
+Info:  0.0 14.1    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[18] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_16_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.2  Source main.arm.dp.alu.sum_SB_LUT4_O_16_LC.COUT
+Info:  0.0 14.2    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[19] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_15_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.3  Source main.arm.dp.alu.sum_SB_LUT4_O_15_LC.COUT
+Info:  0.0 14.3    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[20] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_13_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.4  Source main.arm.dp.alu.sum_SB_LUT4_O_13_LC.COUT
+Info:  0.0 14.4    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[21] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_12_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.6  Source main.arm.dp.alu.sum_SB_LUT4_O_12_LC.COUT
+Info:  0.0 14.6    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[22] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_11_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.7  Source main.arm.dp.alu.sum_SB_LUT4_O_11_LC.COUT
+Info:  0.5 15.1    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[23] budget 0.560000 ns (2,9) -> (2,10)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_10_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3 15.5  Source main.arm.dp.alu.sum_SB_LUT4_O_10_LC.O
+Info:  1.0 16.4    Net main.arm.dp.alu.sum[23] budget 6.239000 ns (2,10) -> (1,8)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_I0_SB_LUT4_O_1_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:8.16-8.19
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:  0.3 16.7  Source main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_I0_SB_LUT4_O_1_LC.O
+Info:  1.0 17.7    Net main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_I0[2] budget 6.239000 ns (1,8) -> (1,10)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4 18.1  Source main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_LC.O
+Info:  0.6 18.7    Net main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1[0] budget 6.239000 ns (1,10) -> (1,9)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_LC.I1
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4 19.1  Source main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_LC.O
+Info:  0.6 19.6    Net main.arm.dp.alu.Z_SB_LUT4_O_I2[2] budget 6.766000 ns (1,9) -> (1,8)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4 20.0  Setup main.arm.dp.alu.Z_SB_LUT4_O_LC.I2
+Info: 7.4 ns logic, 12.6 ns routing
+
+Info: Critical path report for clock 'CLK$SB_IO_IN_$glb_clk' (posedge -> posedge):
+Info: curr total
+Info:  0.5  0.5  Source slow_clk_SB_LUT4_I3_LC.O
+Info:  0.6  1.1    Net slow_clk[0] budget 79.670998 ns (5,1) -> (4,1)
+Info:                Sink $nextpnr_ICESTORM_LC_1.I1
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  1.4  Source $nextpnr_ICESTORM_LC_1.COUT
+Info:  0.0  1.4    Net $nextpnr_ICESTORM_LC_1$O budget 0.000000 ns (4,1) -> (4,1)
+Info:                Sink slow_clk_SB_LUT4_I2_8_LC.CIN
+Info:  0.1  1.5  Source slow_clk_SB_LUT4_I2_8_LC.COUT
+Info:  0.0  1.5    Net slow_clk_SB_CARRY_CI_CO[2] budget 0.000000 ns (4,1) -> (4,1)
+Info:                Sink slow_clk_SB_LUT4_I2_7_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  1.6  Source slow_clk_SB_LUT4_I2_7_LC.COUT
+Info:  0.0  1.6    Net slow_clk_SB_CARRY_CI_CO[3] budget 0.000000 ns (4,1) -> (4,1)
+Info:                Sink slow_clk_SB_LUT4_I2_6_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  1.8  Source slow_clk_SB_LUT4_I2_6_LC.COUT
+Info:  0.0  1.8    Net slow_clk_SB_CARRY_CI_CO[4] budget 0.000000 ns (4,1) -> (4,1)
+Info:                Sink slow_clk_SB_LUT4_I2_5_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  1.9  Source slow_clk_SB_LUT4_I2_5_LC.COUT
+Info:  0.0  1.9    Net slow_clk_SB_CARRY_CI_CO[5] budget 0.000000 ns (4,1) -> (4,1)
+Info:                Sink slow_clk_SB_LUT4_I2_4_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  2.0  Source slow_clk_SB_LUT4_I2_4_LC.COUT
+Info:  0.0  2.0    Net slow_clk_SB_CARRY_CI_CO[6] budget 0.000000 ns (4,1) -> (4,1)
+Info:                Sink slow_clk_SB_LUT4_I2_3_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  2.1  Source slow_clk_SB_LUT4_I2_3_LC.COUT
+Info:  0.0  2.1    Net slow_clk_SB_CARRY_CI_CO[7] budget 0.000000 ns (4,1) -> (4,1)
+Info:                Sink slow_clk_SB_LUT4_I2_2_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  2.3  Source slow_clk_SB_LUT4_I2_2_LC.COUT
+Info:  0.2  2.5    Net slow_clk_SB_CARRY_CI_CO[8] budget 0.190000 ns (4,1) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_1_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  2.6  Source slow_clk_SB_LUT4_I2_1_LC.COUT
+Info:  0.0  2.6    Net slow_clk_SB_CARRY_CI_CO[9] budget 0.000000 ns (4,2) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  2.7  Source slow_clk_SB_LUT4_I2_LC.COUT
+Info:  0.0  2.7    Net slow_clk_SB_CARRY_CI_CO[10] budget 0.000000 ns (4,2) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_18_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  2.8  Source slow_clk_SB_LUT4_I2_18_LC.COUT
+Info:  0.0  2.8    Net slow_clk_SB_CARRY_CI_CO[11] budget 0.000000 ns (4,2) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_17_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  3.0  Source slow_clk_SB_LUT4_I2_17_LC.COUT
+Info:  0.0  3.0    Net slow_clk_SB_CARRY_CI_CO[12] budget 0.000000 ns (4,2) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_16_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  3.1  Source slow_clk_SB_LUT4_I2_16_LC.COUT
+Info:  0.0  3.1    Net slow_clk_SB_CARRY_CI_CO[13] budget 0.000000 ns (4,2) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_15_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  3.2  Source slow_clk_SB_LUT4_I2_15_LC.COUT
+Info:  0.0  3.2    Net slow_clk_SB_CARRY_CI_CO[14] budget 0.000000 ns (4,2) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_14_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  3.3  Source slow_clk_SB_LUT4_I2_14_LC.COUT
+Info:  0.0  3.3    Net slow_clk_SB_CARRY_CI_CO[15] budget 0.000000 ns (4,2) -> (4,2)
+Info:                Sink slow_clk_SB_LUT4_I2_13_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  3.5  Source slow_clk_SB_LUT4_I2_13_LC.COUT
+Info:  0.2  3.7    Net slow_clk_SB_CARRY_CI_CO[16] budget 0.190000 ns (4,2) -> (4,3)
+Info:                Sink slow_clk_SB_LUT4_I2_12_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  3.8  Source slow_clk_SB_LUT4_I2_12_LC.COUT
+Info:  0.0  3.8    Net slow_clk_SB_CARRY_CI_CO[17] budget 0.000000 ns (4,3) -> (4,3)
+Info:                Sink slow_clk_SB_LUT4_I2_11_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  3.9  Source slow_clk_SB_LUT4_I2_11_LC.COUT
+Info:  0.0  3.9    Net slow_clk_SB_CARRY_CI_CO[18] budget 0.000000 ns (4,3) -> (4,3)
+Info:                Sink slow_clk_SB_LUT4_I2_10_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1  4.0  Source slow_clk_SB_LUT4_I2_10_LC.COUT
+Info:  0.3  4.3    Net slow_clk_SB_CARRY_CI_CO[19] budget 0.260000 ns (4,3) -> (4,3)
+Info:                Sink slow_clk_SB_LUT4_I2_9_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:77.24-77.39
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3  4.6  Setup slow_clk_SB_LUT4_I2_9_LC.I3
+Info: 3.4 ns logic, 1.2 ns routing
+
+Info: Critical path report for cross-domain path '<async>' -> 'posedge CLK$SB_IO_IN_$glb_clk':
+Info: curr total
+Info:  0.0  0.0  Source i_Switch_1$sb_io.D_IN_0
+Info:  1.3  1.3    Net i_Switch_1$SB_IO_IN budget 82.998001 ns (13,4) -> (12,7)
+Info:                Sink i_Switch_1_SB_LUT4_I3_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:23.25-23.35
+Info:  0.3  1.6  Setup i_Switch_1_SB_LUT4_I3_LC.I3
+Info: 0.3 ns logic, 1.3 ns routing
+
+Info: Critical path report for cross-domain path 'posedge CLK$SB_IO_IN_$glb_clk' -> '<async>':
+Info: curr total
+Info:  0.5  0.5  Source hexout1.segments_SB_DFF_Q_D_SB_LUT4_O_LC.O
+Info:  0.6  1.1    Net hexout1.segments[6] budget 41.238998 ns (8,14) -> (7,14)
+Info:                Sink o_Segment1_A_SB_LUT4_O_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:100.14-110.2
+Info:                  goboard_7seg.sv:25.17-25.25
+Info:  0.3  1.4  Source o_Segment1_A_SB_LUT4_O_LC.O
+Info:  1.9  3.4    Net o_Segment1_A$SB_IO_OUT budget 41.238998 ns (7,14) -> (0,13)
+Info:                Sink o_Segment1_A$sb_io.D_OUT_0
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:29.25-29.37
+Info: 0.9 ns logic, 2.5 ns routing
+
+Info: Critical path report for cross-domain path 'posedge CLK$SB_IO_IN_$glb_clk' -> 'posedge clk_en_$glb_clk':
+Info: curr total
+Info:  2.1  2.1  Source main.dmem.RAM.0.0_RAM.RDATA_0
+Info:  0.6  2.7    Net main.dmem.RAM.0.0_RDATA_7[0] budget 26.655001 ns (10,13) -> (9,12)
+Info:                Sink main.arm.dp.pcmux.d1_SB_LUT4_O_1_I2_SB_LUT4_O_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  3.1  Source main.arm.dp.pcmux.d1_SB_LUT4_O_1_I2_SB_LUT4_O_LC.O
+Info:  1.3  4.4    Net main.arm.dp.pcmux.d1_SB_LUT4_O_1_I2[1] budget 26.653999 ns (9,12) -> (9,7)
+Info:                Sink main.arm.dp.pcmux.d1_SB_LUT4_O_1_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  4.8  Source main.arm.dp.pcmux.d1_SB_LUT4_O_1_LC.O
+Info:  1.3  6.1    Net main.arm.dp.PCNext[0] budget 7.861000 ns (9,7) -> (11,8)
+Info:                Sink main.arm.dp.rf.rf[0]_SB_DFFE_Q_31_DFFLC.I0
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/regfile.sv:5.36-5.39
+Info:                  ../rtl/datapath.sv:28.14-30.33
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:  0.5  6.6  Setup main.arm.dp.rf.rf[0]_SB_DFFE_Q_31_DFFLC.I0
+Info: 3.4 ns logic, 3.2 ns routing
+
+Info: Critical path report for cross-domain path 'posedge clk_en_$glb_clk' -> 'posedge CLK$SB_IO_IN_$glb_clk':
+Info: curr total
+Info:  0.5  0.5  Source main.arm.dp.pcreg.d_SB_LUT4_O_29_LC.O
+Info:  1.3  1.8    Net main.PC[2] budget 6.552000 ns (7,8) -> (5,7)
+Info:                Sink main.arm.c.cl.cc.zero_SB_LUT4_I3_I1_SB_LUT4_O_1_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/imem.sv:10.25-10.26
+Info:                  ../rtl/cpu_main.sv:11.8-11.23
+Info:  0.3  2.1  Source main.arm.c.cl.cc.zero_SB_LUT4_I3_I1_SB_LUT4_O_1_LC.O
+Info:  1.3  3.4    Net main.arm.c.cl.cc.zero_SB_LUT4_I3_I1[2] budget 6.552000 ns (5,7) -> (8,8)
+Info:                Sink main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.I1
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  3.8  Source main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_O_LC.O
+Info:  0.6  4.4    Net main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2[1] budget 6.552000 ns (8,8) -> (8,8)
+Info:                Sink main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_I2_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  4.8  Source main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_I2_LC.O
+Info:  1.3  6.0    Net main.arm.dp.alu.condinvb_SB_LUT4_O_27_I3_SB_LUT4_O_I2_SB_LUT4_I2_O[0] budget 6.825000 ns (8,8) -> (6,5)
+Info:                Sink main.arm.dp.srcbmux.d0_SB_LUT4_O_6_I0_SB_LUT4_O_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  6.4  Source main.arm.dp.srcbmux.d0_SB_LUT4_O_6_I0_SB_LUT4_O_LC.O
+Info:  1.3  7.7    Net main.arm.dp.srcbmux.d0_SB_LUT4_O_6_I0[0] budget 5.460000 ns (6,5) -> (4,6)
+Info:                Sink main.arm.dp.srcbmux.d0_SB_LUT4_O_6_LC.I0
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4  8.1  Source main.arm.dp.srcbmux.d0_SB_LUT4_O_6_LC.O
+Info:  1.6  9.8    Net out_value[2] budget 5.460000 ns (4,6) -> (2,11)
+Info:                Sink main.arm.dp.alu.condinvb_SB_LUT4_O_28_LC.I1
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:51.14-51.23
+Info:  0.4 10.2  Source main.arm.dp.alu.condinvb_SB_LUT4_O_28_LC.O
+Info:  1.3 11.5    Net main.arm.dp.alu.condinvb[2] budget 5.460000 ns (2,11) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_5_LC.I1
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:7.16-7.24
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:  0.3 11.8  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_5_LC.COUT
+Info:  0.0 11.8    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[3] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_4_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 11.9  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_4_LC.COUT
+Info:  0.0 11.9    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[4] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_3_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.0  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_3_LC.COUT
+Info:  0.0 12.0    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[5] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_2_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.2  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_2_LC.COUT
+Info:  0.0 12.2    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[6] budget 0.000000 ns (2,7) -> (2,7)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_1_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.3  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_1_LC.COUT
+Info:  0.2 12.5    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[7] budget 0.190000 ns (2,7) -> (2,8)
+Info:                Sink main.arm.dp.alu.ALUResult_SB_LUT4_O_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.6  Source main.arm.dp.alu.ALUResult_SB_LUT4_O_LC.COUT
+Info:  0.0 12.6    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[8] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_1_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.7  Source main.arm.dp.alu.sum_SB_LUT4_O_1_LC.COUT
+Info:  0.0 12.7    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[9] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 12.9  Source main.arm.dp.alu.sum_SB_LUT4_O_LC.COUT
+Info:  0.0 12.9    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[10] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_24_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.0  Source main.arm.dp.alu.sum_SB_LUT4_O_24_LC.COUT
+Info:  0.0 13.0    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[11] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_23_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.1  Source main.arm.dp.alu.sum_SB_LUT4_O_23_LC.COUT
+Info:  0.0 13.1    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[12] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_22_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.2  Source main.arm.dp.alu.sum_SB_LUT4_O_22_LC.COUT
+Info:  0.0 13.2    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[13] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_21_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.4  Source main.arm.dp.alu.sum_SB_LUT4_O_21_LC.COUT
+Info:  0.0 13.4    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[14] budget 0.000000 ns (2,8) -> (2,8)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_20_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.5  Source main.arm.dp.alu.sum_SB_LUT4_O_20_LC.COUT
+Info:  0.2 13.7    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[15] budget 0.190000 ns (2,8) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_19_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.8  Source main.arm.dp.alu.sum_SB_LUT4_O_19_LC.COUT
+Info:  0.0 13.8    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[16] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_18_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 13.9  Source main.arm.dp.alu.sum_SB_LUT4_O_18_LC.COUT
+Info:  0.0 13.9    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[17] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_17_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.1  Source main.arm.dp.alu.sum_SB_LUT4_O_17_LC.COUT
+Info:  0.0 14.1    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[18] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_16_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.2  Source main.arm.dp.alu.sum_SB_LUT4_O_16_LC.COUT
+Info:  0.0 14.2    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[19] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_15_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.3  Source main.arm.dp.alu.sum_SB_LUT4_O_15_LC.COUT
+Info:  0.0 14.3    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[20] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_13_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.4  Source main.arm.dp.alu.sum_SB_LUT4_O_13_LC.COUT
+Info:  0.0 14.4    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[21] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_12_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.6  Source main.arm.dp.alu.sum_SB_LUT4_O_12_LC.COUT
+Info:  0.0 14.6    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[22] budget 0.000000 ns (2,9) -> (2,9)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_11_LC.CIN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.1 14.7  Source main.arm.dp.alu.sum_SB_LUT4_O_11_LC.COUT
+Info:  0.5 15.1    Net main.arm.dp.alu.ALUControl_SB_CARRY_CI_CO[23] budget 0.560000 ns (2,9) -> (2,10)
+Info:                Sink main.arm.dp.alu.sum_SB_LUT4_O_10_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:12.21-12.52
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/arith_map.v:51.21-51.22
+Info:  0.3 15.5  Source main.arm.dp.alu.sum_SB_LUT4_O_10_LC.O
+Info:  1.0 16.4    Net main.arm.dp.alu.sum[23] budget 6.239000 ns (2,10) -> (1,8)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_I0_SB_LUT4_O_1_LC.I3
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:91.10-98.2
+Info:                  ../rtl/arm.sv:18.12-23.46
+Info:                  ../rtl/alu.sv:8.16-8.19
+Info:                  ../rtl/datapath.sv:36.14-36.62
+Info:                  ../rtl/cpu_main.sv:9.7-10.31
+Info:  0.3 16.7  Source main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_I0_SB_LUT4_O_1_LC.O
+Info:  1.0 17.7    Net main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_I0[2] budget 6.239000 ns (1,8) -> (1,10)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4 18.1  Source main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1_SB_LUT4_O_2_LC.O
+Info:  0.6 18.7    Net main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_I1[0] budget 6.239000 ns (1,10) -> (1,9)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_LC.I1
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4 19.1  Source main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_O_1_LC.O
+Info:  0.6 19.6    Net main.arm.dp.alu.Z_SB_LUT4_O_I2[2] budget 6.239000 ns (1,9) -> (1,10)
+Info:                Sink main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_I2_LC.I2
+Info:                Defined in:
+Info:                  /Users/nick/.bin/oss-cad-suite/libexec/../share/yosys/ice40/cells_map.v:6.21-6.22
+Info:  0.4 20.0  Source main.arm.dp.alu.Z_SB_LUT4_O_I2_SB_LUT4_I2_LC.O
+Info:  1.6 21.6    Net low_seg_SB_DFFE_Q_E budget 5.719000 ns (1,10) -> (4,10)
+Info:                Sink low_seg_SB_DFFE_Q_DFFLC.CEN
+Info:                Defined in:
+Info:                  cpusys_goboard.sv:125.9-125.45
+Info:  0.1 21.7  Setup low_seg_SB_DFFE_Q_DFFLC.CEN
+Info: 7.5 ns logic, 14.2 ns routing
+
+Info: Max frequency for clock       'clk_en_$glb_clk': 49.90 MHz (PASS at 12.00 MHz)
+Info: Max frequency for clock 'CLK$SB_IO_IN_$glb_clk': 215.42 MHz (PASS at 12.00 MHz)
+
+Info: Max delay <async>                       -> posedge CLK$SB_IO_IN_$glb_clk: 1.62 ns
+Info: Max delay posedge CLK$SB_IO_IN_$glb_clk -> <async>                      : 3.35 ns
+Info: Max delay posedge CLK$SB_IO_IN_$glb_clk -> posedge clk_en_$glb_clk      : 6.56 ns
+Info: Max delay posedge clk_en_$glb_clk       -> posedge CLK$SB_IO_IN_$glb_clk: 21.75 ns
+
+Info: Slack histogram:
+Info:  legend: * represents 1 endpoint(s)
+Info:          + represents [1,1) endpoint(s)
+Info: [ 61587,  62602) |****+
+Info: [ 62602,  63617) |+
+Info: [ 63617,  64632) |***************+
+Info: [ 64632,  65647) |************+
+Info: [ 65647,  66662) |***************+
+Info: [ 66662,  67677) |*******************+
+Info: [ 67677,  68692) |***************+
+Info: [ 68692,  69707) |***+
+Info: [ 69707,  70722) |***+
+Info: [ 70722,  71737) | 
+Info: [ 71737,  72752) |*+
+Info: [ 72752,  73767) |*****+
+Info: [ 73767,  74782) |**********************+
+Info: [ 74782,  75797) |****************+
+Info: [ 75797,  76812) |************************************+
+Info: [ 76812,  77827) |**************************+
+Info: [ 77827,  78842) |*************+
+Info: [ 78842,  79857) |*****+
+Info: [ 79857,  80872) |***************************************+
+Info: [ 80872,  81887) |************************************************************ 
+24 warnings, 0 errors
+
+Info: Program finished normally.

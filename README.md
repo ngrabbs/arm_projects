@@ -560,9 +560,49 @@ to malfunction?
 module latch(input  logic clk,
              input  logic d,
              output logic q);
-  always @(posedge clk)
-    n1 = (d & clk);
-    n2 = (~clk & q);
-    q = (n1 | n2);
+
+  logic n1, n2;
+
+  assign n1 = d & clk;
+  assign n2 = q & ~clk;
+  assign q = n1 | n2;
+endmodule
+```
+
+### Exercise 4.29
+Write an HDL module for the traffic light controller from Section 3.4.1
+```systemverilog
+module exercise4_29(input  logic clk, reset, ta, tb
+                    output logic [1:0] la, lb);
+
+  type enum logic [1:0] { S0, S1, S2, S3} statetype;
+  statetype [1:0] state, nextstate;
+
+  parameter green  = 2'b00;
+  parameter yellow = 2'b01;
+  parameter red    = 2'b10;
+
+  // State Register
+  always_ff @(posedge clk, posedge reset)
+    if (reset) state <= S0;
+    else       state <= nextstate;
+  // Next State Logic
+  always_comb
+    case (state)
+      S0: if (ta) nextstate = S0;
+          else    nextstate = S1;
+      S1:         nextstate = S2;
+      S2: if (tb) nextstate = S2;
+          else    nextstate = S3;
+      S3:         nextstate = S0;
+    endcase
+  // Output Logic
+  always_comb
+    case (state)
+      S0: {la, lb} = green,  red;
+      S1: {la, lb} = yellow, red; 
+      S2: {la, lb} = red,    green; 
+      S3: {la, lb} = red,    yellow; 
+    endcase
 endmodule
 ```

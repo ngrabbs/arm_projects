@@ -89,7 +89,8 @@ end
 
 // === instantiate main module
 cpu_main main(
-    .clk(clk_en),
+    .slow_clk(clk_en),
+    .clk(CLK),
     .reset(reset),
     .WriteData(out_value),
     .DataAdr(dataadr),

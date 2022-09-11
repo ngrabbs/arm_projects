@@ -1,7 +1,7 @@
 module ex4_28();
   logic        d, q, q_expected, clk, reset;
   logic [31:0] vectornum, errors;
-  logic [11:0] testvectors[10000:0];
+  logic [2:0] testvectors[10000:0];
 
   // dut
   latch dut(clk, d, q);
@@ -26,7 +26,7 @@ module ex4_28();
   always @(posedge clk)
     begin
       $display("Testvector %b", testvectors[vectornum]);
-//      #1; {d, q, q_expected} = testvectors[vectornum];
+      #1; {d, q, q_expected} = testvectors[vectornum];
      
     end
 

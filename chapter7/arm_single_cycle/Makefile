@@ -116,21 +116,13 @@ info:
 # defult target is to make FPGA bitstream for design
 all: isim vsim count
 
-# synthesize UPduino FPGA bitstream for design
-upd:
-	@cd upduino && make -f Makefile
-
-# program UPduino FPGA via USB (may need udev rules or sudo on Linux)
-upd_prog:
-	@cd upduino && make -f Makefile prog
-
 # synthesize iCEBreaker FPGA bitstream for design
-iceb:
-	@cd icebreaker && make -f Makefile
+goboard:
+	@cd goboard && make -f Makefile
 
 # program iCEBreaker FPGA via USB (may need udev rules or sudo on Linux)
-iceb_prog:
-	@cd icebreaker && make -f Makefile prog
+goboard_prog:
+	@cd goboard && make -f Makefile prog
 
 # run Yosys with "noflatten", which will produce a resource count per module
 count: $(SRC) $(INC) $(MAKEFILE_LIST)
@@ -179,8 +171,7 @@ $(VSIMDIR)/obj_dir/V$(VTOP): $(VSIMDIR)/$(VSIMCSRC) $(INC) $(SRC) $(MAKEFILE_LIS
 # delete all targets that will be re-generated
 clean:
 	rm -f $(ISIMDIR)/$(ISIMOUT) $(wildcard $(VSIMDIR)/obj_dir/*)
-	@cd upduino && make -f Makefile clean
-	@cd icebreaker && make -f Makefile clean
+	@cd goboard && make -f Makefile clean
 
 
 # prevent make from deleting any intermediate files

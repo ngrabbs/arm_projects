@@ -1,13 +1,22 @@
 /* verilator lint_off WIDTH */ // TODO: remove this when fixed
 /* verilator lint_off UNUSED */ // TODO: remove this
-module imem(input  logic [31:0] a, // TODO: verilator thinks a is unused, why?
-            output logic [31:0] rd);
+/*
+module imem#(
+    parameter ADDR_W = 8,
+    parameter DATA_W = 32
+) ( 
+  */
+  module imem(
+    input  logic [31:0] a, // TODO: verilator thinks a is unused, why?
+    output logic [31:0] rd
+);
 
-  logic [31:0] RAM[14:0];
+  logic [31:0] RAM[64:0];
 
   initial begin
 //    $readmemh("memfile.dat", RAM);
     /* CMP */
+    /*
     RAM[0]   = 32'he05f000f;
     RAM[1]   = 32'he04f100f;
     RAM[2]   = 32'he1500001;
@@ -19,7 +28,15 @@ module imem(input  logic [31:0] a, // TODO: verilator thinks a is unused, why?
     RAM[8]   = 32'he1500000;
     RAM[9]   = 32'he1500001;
     RAM[10]  = 32'he2811001;
-    /* Count -> works on goboard
+    */
+    /*
+    Info: Device utilisation:
+    Info:            ICESTORM_LC:   563/ 1280    43%
+    Info:           ICESTORM_RAM:     1/   16     6%
+    Info:                  SB_IO:    20/  112    17%
+    Info:                  SB_GB:     8/    8   100%
+    */
+    /* Count -> works on goboard */
     RAM[0]  = 32'he04f000f;
     RAM[1]  = 32'he04f100f;
     RAM[2]  = 32'he04f200f;
@@ -33,9 +50,24 @@ module imem(input  logic [31:0] a, // TODO: verilator thinks a is unused, why?
     RAM[10] = 32'h1afffff9;
     RAM[11] = 32'he5803000;
     RAM[12] = 32'heafffff7;
-    */
+
+    RAM[13] = 32'heafffff7;
+    RAM[14] = 32'heafffff7;
+    RAM[15] = 32'heafffff7;
+    RAM[16] = 32'heafffff7;
+    RAM[17] = 32'heafffff7;
+    RAM[18] = 32'heafffff7;
+    RAM[18] = 32'heafffff7;
+    RAM[20] = 32'heafffff7;
+    RAM[21] = 32'heafffff7;
+    RAM[22] = 32'heafffff7;
+    RAM[23] = 32'heafffff7;
   end
 
   // TODO: verilator is complaining about this
+  /*
+  always @(posedge clk)
+    rd <= RAM[a[7:2]];
+    */
   assign rd = RAM[a[31:2]]; // word aligned
 endmodule
