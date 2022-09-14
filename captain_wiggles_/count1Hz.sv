@@ -48,8 +48,7 @@ always_ff @(posedge i_Clk) begin
     clk_en           <= 1'b0;
     slow_clk_counter <= '0;
   end else begin
-    //if (slow_clk_counter == 25000000) begin
-    if (slow_clk_counter == 2500000) begin
+    if (slow_clk_counter == 25000000) begin
       slow_clk_counter <= '0;
       clk_en <= 1'b1; 
     end else begin
