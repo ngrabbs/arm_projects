@@ -25,7 +25,7 @@ module count1Hz(
 
 logic [24:0] slow_clk_counter;
 logic        clk_en;
-logic [7:0]  seg_count;
+logic [3:0]  seg_count1, seg_count2;
 
 logic w_Segment1_A;
 logic w_Segment1_B;
@@ -48,7 +48,8 @@ always_ff @(posedge i_Clk) begin
     clk_en           <= 1'b0;
     slow_clk_counter <= '0;
   end else begin
-    if (slow_clk_counter == 25000000) begin
+    //if (slow_clk_counter == 25000000) begin
+    if (slow_clk_counter == 2500000) begin
       slow_clk_counter <= '0;
       clk_en <= 1'b1; 
     end else begin
@@ -60,7 +61,15 @@ end
 
 always_ff @(posedge i_Clk) begin
   if (clk_en) begin
-    seg_count         <= seg_count + 1'b1;
+    if(seg_count2 == 4'b1001 && seg_count1 == 4'b1001) begin
+      seg_count2 <= '0;
+      seg_count1 <= '0;
+    end else if (seg_count1 == 4'b1001) begin
+      seg_count2 <= seg_count2 + 1'b1;
+      seg_count1 <= '0;
+    end else begin
+      seg_count1 <= seg_count1 + 1'b1; 
+    end
   end
 end 
 
@@ -68,7 +77,7 @@ end
 Binary_To_7Segment Inst
 (
   .i_Clk(i_Clk),
-  .i_Binary_Num(seg_count[7:4]),
+  .i_Binary_Num(seg_count2),
   .o_Segment_A(w_Segment1_A),
   .o_Segment_B(w_Segment1_B),
   .o_Segment_C(w_Segment1_C),
@@ -82,7 +91,7 @@ Binary_To_7Segment Inst
 Binary_To_7Segment Inst1
 (
   .i_Clk(i_Clk),
-  .i_Binary_Num(seg_count[3:0]),
+  .i_Binary_Num(seg_count1),
   .o_Segment_A(w_Segment2_A),
   .o_Segment_B(w_Segment2_B),
   .o_Segment_C(w_Segment2_C),
