@@ -38,6 +38,7 @@ module decoder(input  logic [1:0] Op,
         4'b0000: ALUControl = 2'b10;  // AND
         4'b1010: ALUControl = 2'b01;  // CMP
         4'b1100: ALUControl = 2'b11;  // ORR 
+        4'b1000: ALUControl = 2'b10;  // TST
         default: ALUControl = 2'bx;   // unimplemented
     endcase
 
@@ -52,5 +53,5 @@ module decoder(input  logic [1:0] Op,
 
   // PC Logic
   assign PCS = ((Rd == 4'b1111) & RegW) | Branch;
-  assign NoWrite = (Funct[4:1] == 4'b1010) ? 1'b1 : 1'b0;
+  assign NoWrite = (Funct[4:1] ==? 4'b1xxx) ? 1'b1 : 1'b0;
 endmodule
