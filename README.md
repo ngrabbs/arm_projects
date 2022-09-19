@@ -25,7 +25,8 @@ At the time of this writing we only have a few instructions and as I add more i'
 
 ## Flash go-board
 I have a simple count program that I ported over to the arm after seeing Xark run it on his SystemVerilog version of [Ben Eaters 8-bit CPU](https://github.com/XarkLabs/BenEaterSV).  It simply counts up in hex and displays on the go-board 7-segment displays.  To build it just cd into the goboard directory, make, make prog:
-```nick@MacBook-Pro arm_single_cycle % cd goboard 
+```
+nick@MacBook-Pro arm_single_cycle % cd goboard 
 nick@MacBook-Pro goboard % make
 === Synthesizing FPGA design ===
 verilator --lint-only -sv --language 1800-2012 --trace-fst -v /Users/nick/.bin/oss-cad-suite/share/yosys/ice40/cells_sim.v -I../rtl -Wall -Wno-DECLFILENAME  -DNO_ICE40_DEFAULT_ASSIGNMENTS --top-module cpusys_goboard ice40_config.vlt cpusys_goboard.sv goboard_7seg.sv ../rtl/adder.sv ../rtl/alu.sv ../rtl/arm.sv ../rtl/condcheck.sv ../rtl/condlogic.sv ../rtl/controller.sv ../rtl/cpu_main.sv ../rtl/datapath.sv ../rtl/decoder.sv ../rtl/dmem.sv ../rtl/extend.sv ../rtl/flopenr.sv ../rtl/flopr.sv ../rtl/imem.sv ../rtl/mux2.sv ../rtl/regfile.sv ../rtl/shifter.sv 2>&1 | tee logs/cpusys_goboard_verilator.log
@@ -60,7 +61,8 @@ reading..
 VERIFY OK             
 cdone: high
 Bye.
-nick@MacBook-Pro goboard % ```
+nick@MacBook-Pro goboard % 
+```
 
 Afterwards your goboard should count!: [goboard counting](./img/goboard.jpg)
 
