@@ -64,7 +64,7 @@ Bye.
 nick@MacBook-Pro goboard % 
 ```
 
-Afterwards your goboard should count!: [goboard counting](./img/goboard.jpg)
+Afterwards your goboard should count: ![goboard counting](./img/goboard.jpg)
 
 
 ## MISC
