@@ -23,7 +23,7 @@ At the time of this writing we only have a few instructions and as I add more i'
 #### Branches:
 * B
 
-## Flash go-board
+## Flash ARM single cycle to go-board
 I have a simple count program that I ported over to the arm after seeing Xark run it on his SystemVerilog version of [Ben Eaters 8-bit CPU](https://github.com/XarkLabs/BenEaterSV).  It simply counts up in hex and displays on the go-board 7-segment displays.  To build it just cd into the goboard directory, make, make prog:
 ```
 nick@MacBook-Pro arm_single_cycle % cd goboard 
@@ -68,10 +68,6 @@ Afterwards your goboard should count: ![goboard counting](./img/goboard.jpg)
 
 
 ## MISC
-build and test the processor:
-iverilog -g2009 -o arm_tb.o arm_tb.sv arm.sv controller.sv datapath.sv adder.sv condlogic.sv decoder.sv extend.sv flopr.sv mux2.sv regfile.sv flopenr.sv top.sv dmem.sv imem.sv alu.sv; vvp arm_tb.o
-iverilog -g2005-sv -o arm_tb.o arm_tb.sv arm.sv controller.sv datapath.sv adder.sv condlogic.sv decoder.sv extend.sv flopr.sv mux2.sv regfile.sv flopenr.sv top.sv dmem.sv imem.sv alu.sv; vvp arm_tb.o
-
 if you want to just test the assembler on the pi:
 pi@raspberrypi:~ $ as -o arm_test_example_os.o arm_test_example_os.s
 pi@raspberrypi:~ $ objdump -S arm_test_example_os.o
