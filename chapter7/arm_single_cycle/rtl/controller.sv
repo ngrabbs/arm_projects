@@ -1,4 +1,3 @@
-/* verilator lint_off UNUSED */ // TODO: remove this
 module controller(input   logic         clk, reset,
                    input  logic [31:12] Instr,
                    input  logic [3:0]   ALUFlags,
@@ -6,18 +5,25 @@ module controller(input   logic         clk, reset,
                    output logic         RegWrite,
                    output logic [1:0]   ImmSrc,
                    output logic         ALUSrc,
-                   output logic [1:0]   ALUControl,
+                   output logic [2:0]   ALUControl,
                    output logic         MemWrite, MemtoReg,
-                   output logic         PCSrc);
+                   output logic         PCSrc,
+                   output logic         carry,
+                   output logic         Shift);
 
   logic [1:0] FlagW;
-  logic       PCS, RegW, MemW, NoWrite;
+  logic       PCS, RegW, MemW;
+  logic       NoWrite;
 
   decoder dec(Instr[27:26], Instr[25:20], Instr[15:12],
               FlagW, PCS, RegW, MemW,
-              MemtoReg, ALUSrc, NoWrite, ImmSrc, RegSrc, ALUControl);
-  condlogic cl(clk, reset, Instr[31:28], ALUFlags, // TODO: verilator thinks Instr is unused
+              MemtoReg, ALUSrc, ImmSrc, RegSrc, ALUControl,
+              NoWrite,
+              Shift);
+  condlogic cl(clk, reset, Instr[31:28], ALUFlags,
                FlagW, PCS, RegW, MemW,
-               PCSrc, RegWrite, MemWrite, NoWrite);
+               PCSrc, RegWrite, MemWrite,
+               carry,
+               NoWrite);
 
 endmodule

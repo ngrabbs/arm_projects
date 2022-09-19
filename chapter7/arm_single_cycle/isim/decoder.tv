@@ -1,0 +1,12 @@
+//This is a test
+00_000000_0000
+//Anorther Test
+01_101010_1001
+
+//e04f000f 	sub	r0, r15, r15
+11100000010011110000000000001111
+//e04f100f 	sub	r1, r15, r15
+//e281100f 	add	r1, r1, #15
+//e3100ffe 	tst	r0, #1016	; 0x3f8
+//013a0009 	teqeq	r10, r9
+//11110155 	tstne	r1, r5, asr r1

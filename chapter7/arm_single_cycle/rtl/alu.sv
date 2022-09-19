@@ -1,20 +1,19 @@
-/* verilator lint_off WIDTH */ // TODO remove once fixed
-/* verilator lint_off UNUSED */ // TODO remove once fixed
 module alu(input  logic [31:0] SrcA, SrcB,
-           input  logic [1:0]  ALUControl,
+           input  logic [2:0]  ALUControl,
            output logic [31:0] ALUResult,
-           output logic [3:0]  ALUFlags);
+           output logic [3:0]  ALUFlags,
+           input  logic        carry);
+
+  logic        neg, zero, carryout, overflow;
   logic [31:0] condinvb;
-  logic [31:0] sum;
-  logic V, C, N, Z;
+  logic [32:0] sum;
+  logic        carryin;
 
+  assign carryin = ALUControl[2] ? carry : ALUControl[0];
   assign condinvb = ALUControl[0] ? ~SrcB : SrcB;
-  assign {C, sum} = SrcA + condinvb + ALUControl[0]; // TODO I dont know how to fix this
-  assign V = (~ALUControl[1] & (SrcA[31] ^ sum[31]) & ~(ALUControl[0] ^ SrcA[31] ^ SrcB[31]));
-  //assign C = (~ALUControl[1] & sum[32]) ? 1'b1 : 1'b0;
-  assign N = ALUResult[31];
-  assign Z = (ALUResult == 0) ? 1'b1 : 1'b0;
+  assign sum = SrcA + condinvb + carryin;
 
+ 
 
   always_comb
     casez (ALUControl[1:0])
@@ -23,7 +22,12 @@ module alu(input  logic [31:0] SrcA, SrcB,
       2'b11: ALUResult = SrcA | SrcB;
     endcase
 
-//  assign ALUFlags = 4'b0000;
-//  assign ALUFlags = {V, C, N, Z};
-  assign ALUFlags = {N, Z, C, Z}; // TODO verilator says V is unused
+  assign neg = ALUResult[31];
+  assign zero = (ALUResult == 32'b0);
+  assign carryout = (ALUControl[1] == 1'b0) & sum[32];
+  assign overflow = (ALUControl[1] == 1'b0) &
+                    ~(SrcA[31] ^ SrcB[31] ^ ALUControl[0]) &
+                    (SrcA[31] ^ sum[31]);
+ 
+  assign ALUFlags = {neg, zero, carryout, overflow}; 
 endmodule

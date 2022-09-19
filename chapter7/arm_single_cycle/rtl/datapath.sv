@@ -4,17 +4,22 @@ module datapath(input  logic        clk, reset,
                 input  logic        RegWrite,
                 input  logic [1:0]  ImmSrc,
                 input  logic        ALUSrc,
-                input  logic [1:0]  ALUControl,
+                input  logic [2:0]  ALUControl,
                 input  logic        MemtoReg,
                 input  logic        PCSrc,
                 output logic [3:0]  ALUFlags,
                 output logic [31:0] PC,
                 input  logic [31:0] Instr, // TODO: verilator thinks this is unused
-                output logic [31:0] ALUResult, WriteData,
-                input  logic [31:0] ReadData);
+                output logic [31:0] ALUResultOut,
+                output logic [31:0] WriteData,
+                input  logic [31:0] ReadData,
+                input  logic        carry,
+                input  logic        Shift);
+
   logic [31:0] PCNext, PCPlus4, PCPlus8;
   logic [31:0] ExtImm, SrcA, SrcB, Result;
   logic [3:0]  RA1, RA2;
+  logic [31:0] srcBshifted, ALUResult;
 
   // next PC logic
   mux2 #(32)  pcmux(PCPlus4, Result, PCSrc, PCNext);
@@ -28,10 +33,14 @@ module datapath(input  logic        clk, reset,
   regfile    rf(clk, RegWrite, RA1, RA2,
                 Instr[15:12], Result, PCPlus8,
                 SrcA, WriteData);
-  mux2 #(32) resmux(ALUResult, ReadData, MemtoReg, Result);
+  mux2 #(32) resmux(ALUResultOut, ReadData, MemtoReg, Result);
   extend     ext(Instr[23:0], ImmSrc, ExtImm);
 
   // ALU logic
-  mux2 #(32) srcbmux(WriteData, ExtImm, ALUSrc, SrcB);
-  alu        alu(SrcA, SrcB, ALUControl, ALUResult, ALUFlags);
+  shifter    sh(WriteData, Instr[11:7], Instr[6:5], srcBshifted);
+  mux2 #(32) srcbmux(srcBshifted, ExtImm, ALUSrc, SrcB);
+  alu        alu(SrcA, SrcB, ALUControl,
+                 ALUResult, ALUFlags,
+                 carry);
+  mux2 #(32) aluresultmux(ALUResult, SrcB, Shift, ALUResultOut);
 endmodule
