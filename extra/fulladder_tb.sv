@@ -28,7 +28,7 @@ module fulladder_tb();
     begin
 //      $display("Testvector %b", testvectors[vectornum]);
       #1; {a, b, cin, s_expected, cout_expected} = testvectors[vectornum];
-     
+
     end
 
   // check results on falling edge of clk
@@ -44,7 +44,7 @@ module fulladder_tb();
     vectornum = vectornum + 1;
 
     if (testvectors[vectornum] === 99'bx) begin
-      $display("%d tests completed with %d errors", 
+      $display("%d tests completed with %d errors",
         vectornum, errors);
       $finish;
     end
