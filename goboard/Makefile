@@ -108,7 +108,7 @@ $(FPGATOP).bin: $(FPGATOP).json
 
 # delete all targets that will be re-generated
 clean:
-	rm -f $(VLT_CONFIG) $(FPGATOP).asc $(FPGATOP).json $(FPGATOP).bin
+	rm -rf $(VLT_CONFIG) $(FPGATOP).asc $(FPGATOP).json $(FPGATOP).bin $(LOGS)
 
 # common rules to run FPGA tools
 include ../common.mk
