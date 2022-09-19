@@ -12,7 +12,6 @@ The main board that I have been using is a go-board from [nandland.com](https://
 The book says that a computer architecture is defined by its instruction set and architectural state.   The architectural state for the ARM processor consistes of 16 32-bit registers and a status register.  We're also using a 32 bit wide memory address as well as 32 bit wide memory data.
 
 At the time of this writing we only have a few instructions and as I add more i'll try to remember to update this readme.
-###Current instructions:
 #### Data Processing:
 * ADD
 * SUB
@@ -21,7 +20,7 @@ At the time of this writing we only have a few instructions and as I add more i'
 #### Memory Instructions:
 * LDR
 * STR
-##### Branches:
+#### Branches:
 * B
 
 ## MISC
