@@ -23,6 +23,48 @@ At the time of this writing we only have a few instructions and as I add more i'
 #### Branches:
 * B
 
+## Flash go-board
+I have a simple count program that I ported over to the arm after seeing Xark run it on his SystemVerilog version of [Ben Eaters 8-bit CPU](https://github.com/XarkLabs/BenEaterSV).  It simply counts up in hex and displays on the go-board 7-segment displays.  To build it just cd into the goboard directory, make, make prog:
+```nick@MacBook-Pro arm_single_cycle % cd goboard 
+nick@MacBook-Pro goboard % make
+=== Synthesizing FPGA design ===
+verilator --lint-only -sv --language 1800-2012 --trace-fst -v /Users/nick/.bin/oss-cad-suite/share/yosys/ice40/cells_sim.v -I../rtl -Wall -Wno-DECLFILENAME  -DNO_ICE40_DEFAULT_ASSIGNMENTS --top-module cpusys_goboard ice40_config.vlt cpusys_goboard.sv goboard_7seg.sv ../rtl/adder.sv ../rtl/alu.sv ../rtl/arm.sv ../rtl/condcheck.sv ../rtl/condlogic.sv ../rtl/controller.sv ../rtl/cpu_main.sv ../rtl/datapath.sv ../rtl/decoder.sv ../rtl/dmem.sv ../rtl/extend.sv ../rtl/flopenr.sv ../rtl/flopr.sv ../rtl/imem.sv ../rtl/mux2.sv ../rtl/regfile.sv ../rtl/shifter.sv 2>&1 | tee logs/cpusys_goboard_verilator.log
+yosys -e "no driver" -l logs/cpusys_goboard_yosys.log -q -p 'verilog_defines  -DNO_ICE40_DEFAULT_ASSIGNMENTS ; read_verilog -sv -I../rtl cpusys_goboard.sv goboard_7seg.sv ../rtl/adder.sv ../rtl/alu.sv ../rtl/arm.sv ../rtl/condcheck.sv ../rtl/condlogic.sv ../rtl/controller.sv ../rtl/cpu_main.sv ../rtl/datapath.sv ../rtl/decoder.sv ../rtl/dmem.sv ../rtl/extend.sv ../rtl/flopenr.sv ../rtl/flopr.sv ../rtl/imem.sv ../rtl/mux2.sv ../rtl/regfile.sv ../rtl/shifter.sv ; synth_ice40 -device u -json cpusys_goboard.json'
+=== Routing FPGA design ===
+nextpnr-ice40 -l logs/cpusys_goboard_nextpnr.log -q --placer heap --promote-logic --opt-timing --hx1k --package vq100 --json cpusys_goboard.json --pcf goboard.pcf --asc cpusys_goboard.asc
+icepack cpusys_goboard.asc cpusys_goboard.bin
+=== Synthesis stats for cpusys_goboard on hx1k ===
+Package: oss-cad-suite-darwin-arm64-20220729
+Yosys 0.19+36 (git sha1 30a4218f5, aarch64-apple-darwin20.2-clang 10.0.0-4ubuntu1 -fPIC -Os)
+nextpnr-ice40 -- Next Generation Place and Route (Version nextpnr-0.3-69-g1b54fa2a)
+Info: Device utilisation:
+Info:            ICESTORM_LC:   573/ 1280    44%
+Info:           ICESTORM_RAM:     1/   16     6%
+Info:                  SB_IO:    20/  112    17%
+Info:                  SB_GB:     8/    8   100%
+
+Info: Max frequency for clock 'CLK$SB_IO_IN_$glb_clk': 215.42 MHz (PASS at 12.00 MHz)
+
+nick@MacBook-Pro goboard % make prog
+iceprog -d i:0x0403:0x6010 cpusys_goboard.bin
+init..
+cdone: high
+reset..
+cdone: low
+flash ID: 0x20 0x20 0x11 0x00
+file size: 32220
+erase 64kB sector at 0x000000..
+programming..
+done.                 
+reading..
+VERIFY OK             
+cdone: high
+Bye.
+nick@MacBook-Pro goboard % ```
+
+Afterwards your goboard should count!: [goboard counting](./img/goboard.jpg)
+
+
 ## MISC
 build and test the processor:
 iverilog -g2009 -o arm_tb.o arm_tb.sv arm.sv controller.sv datapath.sv adder.sv condlogic.sv decoder.sv extend.sv flopr.sv mux2.sv regfile.sv flopenr.sv top.sv dmem.sv imem.sv alu.sv; vvp arm_tb.o
