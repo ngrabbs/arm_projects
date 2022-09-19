@@ -1,6 +1,6 @@
 # Arm Single Cycle processor from Digital Design and Computer Architecture ARM Edition
 
-This is a SystemVerilog project heavily based off the single cycle arm processor in the [DD&CA ARM Edition](https://www.amazon.com/Digital-Design-Computer-Architecture-ARM/) book.
+This is a SystemVerilog project heavily based off the single cycle arm processor in the [DD&CA ARM Edition](https://www.amazon.com/Digital-Design-Computer-Architecture-ARM/dp/0128000562/) book.
 build and test the processor:
 iverilog -g2009 -o arm_tb.o arm_tb.sv arm.sv controller.sv datapath.sv adder.sv condlogic.sv decoder.sv extend.sv flopr.sv mux2.sv regfile.sv flopenr.sv top.sv dmem.sv imem.sv alu.sv; vvp arm_tb.o
 iverilog -g2005-sv -o arm_tb.o arm_tb.sv arm.sv controller.sv datapath.sv adder.sv condlogic.sv decoder.sv extend.sv flopr.sv mux2.sv regfile.sv flopenr.sv top.sv dmem.sv imem.sv alu.sv; vvp arm_tb.o
