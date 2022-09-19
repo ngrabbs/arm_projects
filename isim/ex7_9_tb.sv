@@ -14,11 +14,13 @@ cpu_main dut(clk, clk, reset, WriteData, DataAdr, MemWrite);
   // initialize test
   initial
     begin
+      /* verilator lint_off INITIALDLY */
       reset <= 1; # 22; reset <= 0;
     end
   // generate clock to sequence tests
   always
     begin
+      /* verilator lint_off COMBDLY */
       clk <= 1; # 5; clk <= 0; # 5;
     end
   // check results
@@ -27,10 +29,10 @@ cpu_main dut(clk, clk, reset, WriteData, DataAdr, MemWrite);
       if(MemWrite) begin
         if(DataAdr === 20 & WriteData === 2) begin
           $display("Simulation succeeded");
-          $stop;
+          $finish;
         end else begin
           $display("Simulation failed");
-          $stop;
+          $finish;
         end
       end
     end

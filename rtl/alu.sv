@@ -11,9 +11,8 @@ module alu(input  logic [31:0] SrcA, SrcB,
 
   assign carryin = ALUControl[2] ? carry : ALUControl[0];
   assign condinvb = ALUControl[0] ? ~SrcB : SrcB;
+  /* verilator lint_off WIDTH */
   assign sum = SrcA + condinvb + carryin;
-
- 
 
   always_comb
     casez (ALUControl[1:0])
@@ -28,6 +27,6 @@ module alu(input  logic [31:0] SrcA, SrcB,
   assign overflow = (ALUControl[1] == 1'b0) &
                     ~(SrcA[31] ^ SrcB[31] ^ ALUControl[0]) &
                     (SrcA[31] ^ sum[31]);
- 
-  assign ALUFlags = {neg, zero, carryout, overflow}; 
+
+  assign ALUFlags = {neg, zero, carryout, overflow};
 endmodule

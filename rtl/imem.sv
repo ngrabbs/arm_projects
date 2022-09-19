@@ -4,17 +4,17 @@
 module imem#(
     parameter ADDR_W = 8,
     parameter DATA_W = 32
-) ( 
+) (
   */
   module imem(
-    input  logic [31:0] a, // TODO: verilator thinks a is unused, why?
+    input  logic [31:0] a,
     output logic [31:0] rd
 );
 
   logic [31:0] RAM[64:0];
 
   initial begin
-    $readmemh("ex7.9_memfile.dat", RAM);
+    $readmemh("rtl/mems/ex7_9memfile.dat", RAM);
     /* CMP */
     /*
     RAM[0]   = 32'he05f000f;

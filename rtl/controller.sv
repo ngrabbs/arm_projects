@@ -1,4 +1,5 @@
 module controller(input   logic         clk, reset,
+                  /* verilator lint_off UNUSED */
                    input  logic [31:12] Instr,
                    input  logic [3:0]   ALUFlags,
                    output logic [1:0]   RegSrc,
