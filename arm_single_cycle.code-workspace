@@ -33,7 +33,7 @@
 		"cSpell.diagnosticLevel": "Hint",
 		"terminal.integrated.fontSize": 11,
 		"workbench.editor.enablePreview": false,
-		"verilog.linting.verilator.arguments": "-sv --language 1800-2012 --trace-fst -v /home/kenj/Dev/oss-cad-suite/share/yosys/ice40/cells_sim.v -Irtl -Wall -Wno-DECLFILENAME -Wno-STMTDLY  -DNO_ICE40_DEFAULT_ASSIGNMENTS",
+		"verilog.linting.verilator.arguments": "-sv --language 1800-2012 --trace-fst -v /Users/nick/.bin/oss-cad-suite/share/yosys/ice40/cells_sim.v -Irtl -Wall -Wno-DECLFILENAME -Wno-STMTDLY  -DNO_ICE40_DEFAULT_ASSIGNMENTS",
 		"verilog.linting.linter": "verilator",
 		"todo-tree.highlights.defaultHighlight": {
 			"icon": "alert",
