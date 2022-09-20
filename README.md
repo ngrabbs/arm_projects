@@ -6,10 +6,10 @@ This is a SystemVerilog project heavily based off the single cycle arm processor
 My goal is to have the three versions (single cycle / multi cycle / pipelined) of the ARM processor described in the DD&CA book working on a couple different fpga dev boards that I have.  
 
 ## FPGA Boards
-The main board that I have been using is a go-board from [nandland.com](https://nandland.com/the-go-board/).  Nandland has a very affordable board to get started with fpga and a lot of great tutorials and hdl information.  The synthesis and implementation tools im using with the go-board are from [oss-cad-suite](https://github.com/YosysHQ/oss-cad-suite-build), they're open source, work with Makefiles and are very easy to learn.  I have generated a bit-steam and programmed a de0nano board through quartus prime lite with the single cycle code as well, but I don't like to use windows as much as mac / linux, so the de0nano doesn't get used very much.  Recently I've picked up an [arty-a7](https://digilent.com/shop/arty-a7-artix-7-fpga-development-board/) from digilent as well as a [arty-z7](https://digilent.com/shop/arty-z7-zynq-7000-soc-development-board/) to practice learning Vivado & Vitus with.  I have the arm single cycle working on the arty-a7 as well and will put the build files here.
+The main board that I have been using is a goboard from [nandland.com](https://nandland.com/the-goboard/).  Nandland has a very affordable board to get started with fpga and a lot of great tutorials and hdl information.  The synthesis and implementation tools im using with the goboard are from [oss-cad-suite](https://github.com/YosysHQ/oss-cad-suite-build), they're open source, work with Makefiles and are very easy to learn.  I have generated a bit-steam and programmed a de0nano board through quartus prime lite with the single cycle code as well, but I don't like to use windows as much as mac / linux, so the de0nano doesn't get used very much.  Recently I've picked up an [arty-a7](https://digilent.com/shop/arty-a7-artix-7-fpga-development-board/) from digilent as well as a [arty-z7](https://digilent.com/shop/arty-z7-zynq-7000-soc-development-board/) to practice learning Vivado & Vitus with.  I have the arm single cycle working on the arty-a7 as well and will put the build files here.
 
 ## About the ARM Single Cycle
-The book says that a computer architecture is defined by its instruction set and architectural state.   The architectural state for the ARM processor consistes of 16 32-bit registers and a status register.  We're also using a 32 bit wide memory address as well as 32 bit wide memory data.
+The book says that a computer architecture is defined by its instruction set and architectural state.   The architectural state for the ARM processor consistes of 16 32-bit registers and a status register.  We're also using a 8 bit wide memory address to make use of the goboard block RAM and 32-bit wide mem data.  If you look in the dmem.sv file you can see how to enable 32-bit addressing if you just want to test with it vs programming the goboard.
 
 At the time of this writing we only have a few instructions and as I add more i'll try to remember to update this readme.
 #### Data Processing:
@@ -23,8 +23,8 @@ At the time of this writing we only have a few instructions and as I add more i'
 #### Branches:
 * B
 
-## Flash ARM single cycle to go-board
-I have a simple count program that I ported over to the arm after seeing Xark run it on his SystemVerilog version of [Ben Eaters 8-bit CPU](https://github.com/XarkLabs/BenEaterSV).  It simply counts up in hex and displays on the go-board 7-segment displays.  To build it just cd into the goboard directory, make, make prog:
+## Flash ARM single cycle to goboard
+I have a simple count program that I ported over to the arm after seeing Xark run it on his SystemVerilog version of [Ben Eaters 8-bit CPU](https://github.com/XarkLabs/BenEaterSV).  It simply counts up in hex and displays on the goboard 7-segment displays.  To build it just cd into the goboard directory, make, make prog:
 ```
 nick@MacBook-Pro arm_single_cycle % cd goboard 
 nick@MacBook-Pro goboard % make
