@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module decoder(input  logic [1:0] Op,
                input  logic [5:0] Funct,
                input  logic [3:0] Rd,

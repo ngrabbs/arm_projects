@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 /* verilator lint_off WIDTH */ // TODO: remove this when fixed
 /* verilator lint_off UNUSED */ // TODO: remove this
 /*

@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module condcheck(input  logic [3:0] Cond,
                  input  logic [3:0] Flags,
                  output logic CondEx);

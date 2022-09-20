@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module shifter(input  logic [31:0] a,
                input  logic [ 4:0] shamt,
                input  logic [ 1:0] shtype,

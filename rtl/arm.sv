@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module arm(input  logic        clk, reset,
            output logic [31:0] PC,
            input  logic [31:0] Instr,

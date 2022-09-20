@@ -1,3 +1,4 @@
+`timescale 1ns/1ps
 module controller(input   logic         clk, reset,
                   /* verilator lint_off UNUSED */
                    input  logic [31:12] Instr,

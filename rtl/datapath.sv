@@ -1,4 +1,5 @@
 /* verilator lint_off UNUSED */ // TODO: Remove this
+`timescale 1ns/1ps
 module datapath(input  logic        clk, reset,
                 input  logic [1:0]  RegSrc,
                 input  logic        RegWrite,

@@ -1,8 +1,9 @@
 /* verilator lint_off WIDTH */ // TODO: remove this
 /* verilator lint_off UNUSED */ // TODO: remove this
+`timescale 1ns/1ps
 module dmem#(
   parameter ADDR_W = 8,
-  parameter DATA_W = 32 
+  parameter DATA_W = 32
 ) (input  logic        clk, we,
             input  logic [ADDR_W-1:0] a,
             input  logic [DATA_W-1:0] wd,
@@ -15,7 +16,7 @@ module dmem#(
   Info:                  SB_IO:    20/  112    17%
   Info:                  SB_GB:     8/    8   100%
   */
-  
+
   /* Info: Device utilisation: */
   logic [ADDR_W-1:0] RAM[0:2**ADDR_W-1];
   /*

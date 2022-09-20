@@ -1,4 +1,5 @@
 /* verilator lint_off VARHIDDEN */
+`timescale 1ns/1ps
 module regfile(input  logic        clk,
                input  logic        we3,
                input  logic [3:0]  ra1, ra2, wa3,

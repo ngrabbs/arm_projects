@@ -1,4 +1,5 @@
 /* verilator lint_off UNUSED */
+`timescale 1ns/1ps
 module cpu_main(input  logic        slow_clk, clk, reset,
                 output logic [31:0] WriteData, DataAdr,
                 output logic        MemWrite);
