@@ -1,0 +1,14 @@
+# PC: 00000004 Instr: e2833001 ALUFlags: 0000 R3: 00000000 R4: xxxxxxxx DataAdr: 00000001 WriteData: xxxxxxxx
+# PC: 00000008 Instr: e1a03f83 ALUFlags: xxxx R3: 00000001 R4: xxxxxxxx DataAdr: 80000000 WriteData: 00000001
+# PC: 0000000c Instr: e2834001 ALUFlags: 1000 R3: 80000000 R4: xxxxxxxx DataAdr: 80000001 WriteData: xxxxxxxx
+# PC: 00000010 Instr: e1730004 ALUFlags: 0011 R3: 80000000 R4: 80000001 DataAdr: 00000001 WriteData: 80000001
+# PC: 00000014 Instr: e2a33005 ALUFlags: 1000 R3: 80000000 R4: 80000001 DataAdr: 80000006 WriteData: xxxxxxxx
+# PC: 00000018 Instr: e1130004 ALUFlags: 1000 R3: 80000006 R4: 80000001 DataAdr: 80000000 WriteData: 80000001
+# PC: 0000001c Instr: e1a03083 ALUFlags: xxxx R3: 80000006 R4: 80000001 DataAdr: 0000000c WriteData: 80000006
+# PC: 00000020 Instr: e1a04084 ALUFlags: xxxx R3: 0000000c R4: 80000001 DataAdr: 00000002 WriteData: 80000001
+# PC: 00000024 Instr: 75834004 ALUFlags: 0000 R3: 0000000c R4: 00000002 DataAdr: 00000010 WriteData: 00000002
+
+baseAdr = 0x00000000
+while(baseAdr < 0x00008000):
+  print("{0:#0{1}x}".format(baseAdr,10))
+  baseAdr = baseAdr + 4

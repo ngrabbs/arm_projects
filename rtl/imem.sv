@@ -15,7 +15,7 @@ module imem#(
   logic [31:0] RAM[64:0];
 
   initial begin
-    //$readmemh("rtl/mems/ex7_9memfile.dat", RAM);
+    $readmemh("rtl/mems/ex7_9memfile.dat", RAM);
     /* CMP */
     /*
     RAM[0]   = 32'he05f000f;
@@ -39,6 +39,7 @@ module imem#(
     */
 
     /* Count -> works on goboard */
+    /*
     RAM[0]  = 32'he04f000f;
     RAM[1]  = 32'he04f100f;
     RAM[2]  = 32'he04f200f;
@@ -64,6 +65,7 @@ module imem#(
     RAM[21] = 32'heafffff7;
     RAM[22] = 32'heafffff7;
     RAM[23] = 32'heafffff7;
+    */
   end
 
   // TODO: verilator is complaining about this
