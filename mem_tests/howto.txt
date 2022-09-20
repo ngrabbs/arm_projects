@@ -1,1 +1,0 @@
-yosys -p 'synth_ice40 -top blinky -json blinky.json' blinky.v  
