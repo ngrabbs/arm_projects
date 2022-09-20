@@ -69,15 +69,18 @@ Afterwards your goboard should count: ![goboard counting](./img/goboard.jpg)
 
 ## MISC
 if you want to just test the assembler on the pi:
+```
 pi@raspberrypi:~ $ as -o arm_test_example_os.o arm_test_example_os.s
 pi@raspberrypi:~ $ objdump -S arm_test_example_os.o
 pi@raspberrypi:~ $ gcc -o arm_test_example_os arm_test_example_os.o
 pi@raspberrypi:~ $ gdb -tui ./arm_test_example_os
+
   -> in gdb:
     -> b main
     -> run
     -> layout asm
     -> layout reg
+```
 
 gdb:
 https://jacobmossberg.se/posts/2017/01/17/use-gdb-on-arm-assembly-program.html
