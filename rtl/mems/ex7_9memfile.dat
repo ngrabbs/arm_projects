@@ -1,11 +1,26 @@
-E04F300F
-E2833001
-E1A03F83
-E2834001
-E1730004
-E2A33005
-E1130004
-E1A03083
-E1A04084
-75834004
-65834008
+//; If successful, it should write the value 2 to address 20
+//MAIN
+//  SUB R3, PC, PC       ; R3 = 0
+//  ADD R3, R3, #1       ; R3 = 0x1
+//  LSL R3, R3, #30      ; R3 = 0x80000000
+//  ADD R4, R3, #1       ; R4 = 0x80000001
+//  CMN R3, R4           ; set flags according to R3+R4: NZCV=0011
+//  ADC R3, R3, #5       ; R3 = 0x80000006
+//  TST R3, R4           ; set NZ flags according to R3&R4: NZCV=1011
+//  LSL R3, R3, #1       ; R3 = 0x0000000c
+//  LSL R4, R4, #1       ; R4 = 0x00000002
+//  STRVC R4, [R3, #4]   ; mem[16]<=0x2 if V=0:
+//                       ; shouldn't happen
+//  STRVS R4, [R3, #8]   ; mem[20]<=0x2 if V=1: should happen
+
+E04F300F      // SUB     R3,PC,PC
+E2833001      // ADD     R3,R3,#0x00000001
+E1A03F83      // LSL     R3,R3,#31
+E2834001      // ADD     R4,R3,#0x00000001
+E1730004      // CMN     R3,R4
+E2A33005      // ADC     R3,R3,#0x00000005
+E1130004      // TST     R3,R4
+E1A03083      // LSL     R3,R3,#1
+E1A04084      // LSL     R4,R4,#1
+75834004      // STRVC   R4,[R3,#0x0004]
+65834008      // STRVS   R4,[R3,#0x0008]

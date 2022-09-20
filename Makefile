@@ -108,14 +108,12 @@ info:
 	@echo "    make vrun       - run Verilator C++ simulation of design"
 	@echo "    make count      - show design module resource usage counts"
 	@echo "    make show       - show graphical diagram of design modules"
-	@echo "    make upd        - synthesize UPduino FPGA bitstream for design"
-	@echo "    make upd_prog   - program UPduino FPGA bitstream via USB"
-	@echo "    make iceb       - synthesize iCEBreaker FPGA bitstream for design"
-	@echo "    make iceb_prog  - program iCEBreaker FPGA bitstream via USB"
+	@echo "    make goboard    - synthesize goboard FPGA bitstream for design"
+	@echo "    make goboard_prog  - program goboard FPGA bitstream via USB"
 	@echo "    make clean      - clean most files that can be rebuilt"
 
 # defult target is to make FPGA bitstream for design
-all: isim vsim count
+all: isim count
 
 # synthesize iCEBreaker FPGA bitstream for design
 goboard:

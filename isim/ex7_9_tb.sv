@@ -15,6 +15,8 @@ cpu_main dut(clk, clk, reset, WriteData, DataAdr, MemWrite);
   initial
     begin
       /* verilator lint_off INITIALDLY */
+      $dumpfile("logs/ex7_9_tb.fst");
+      $dumpvars(0, dut);
       reset <= 1; # 22; reset <= 0;
     end
   // generate clock to sequence tests
@@ -26,6 +28,7 @@ cpu_main dut(clk, clk, reset, WriteData, DataAdr, MemWrite);
   // check results
   always @(negedge clk)
     begin
+      $display("PC: %x Instr: %b ALUFlags: %b R3: %h R4: %h", dut.PC, dut.Instr, dut.arm.ALUFlags, dut.arm.dp.rf.rf[3], dut.arm.dp.rf.rf[4]);
       if(MemWrite) begin
         if(DataAdr === 20 & WriteData === 2) begin
           $display("Simulation succeeded");

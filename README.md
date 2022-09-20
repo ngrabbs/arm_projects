@@ -66,6 +66,9 @@ nick@MacBook-Pro goboard %
 
 Afterwards your goboard should count: ![goboard counting](./img/goboard.jpg)
 
+## Testing
+![gtkwave](./img/gtkwave.jpg)
+
 
 ## MISC
 if you want to just test the assembler on the pi:
@@ -80,6 +83,8 @@ pi@raspberrypi:~ $ gdb -tui ./arm_test_example_os
     -> run
     -> layout asm
     -> layout reg
+    -> help x
+    -> x/4tb 0x0000000000400398 (print mem in bin)
 ```
 
 gdb:
