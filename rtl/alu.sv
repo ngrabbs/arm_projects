@@ -11,7 +11,7 @@ module alu(input  logic [31:0] SrcA, SrcB,
   logic        carryin;
 
   assign carryin = ALUControl[2] ? carry : ALUControl[0];
-  assign condinvb = ALUControl[0] ? ~SrcB : SrcB;
+  assign condinvb = ALUControl[0] ? ~SrcB : SrcB; // invert for subtract
   /* verilator lint_off WIDTH */
   assign sum = SrcA + condinvb + carryin;
 

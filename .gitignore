@@ -1,4 +1,5 @@
 *.o
+Simple_arm_fuctions
 
 # ignore Quartus II generated folders
 *_sim
