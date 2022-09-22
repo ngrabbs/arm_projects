@@ -5,6 +5,9 @@ This is a SystemVerilog project heavily based off the single cycle arm processor
 ## Goal
 My goal is to have the three versions (single cycle / multi cycle / pipelined) of the ARM processor described in the DD&CA book working on a couple different fpga dev boards that I have.  
 
+## TODO:
+* In single cycle dmem.sv I have to change the clock to negedge for simulation, i need to see if the fpga wants negedge or posedge
+
 ## FPGA Boards
 The main board that I have been using is a goboard from [nandland.com](https://nandland.com/the-goboard/).  Nandland has a very affordable board to get started with fpga and a lot of great tutorials and hdl information.  The synthesis and implementation tools im using with the goboard are from [oss-cad-suite](https://github.com/YosysHQ/oss-cad-suite-build), they're open source, work with Makefiles and are very easy to learn.  I have generated a bit-steam and programmed a de0nano board through quartus prime lite with the single cycle code as well, but I don't like to use windows as much as mac / linux, so the de0nano doesn't get used very much.  Recently I've picked up an [arty-a7](https://digilent.com/shop/arty-a7-artix-7-fpga-development-board/) from digilent as well as a [arty-z7](https://digilent.com/shop/arty-z7-zynq-7000-soc-development-board/) to practice learning Vivado & Vitus with.  I have the arm single cycle working on the arty-a7 as well and will put the build files here.
 

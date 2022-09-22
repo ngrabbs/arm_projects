@@ -12,4 +12,6 @@ main:
    teq r0, r1
    teq r0, r0
    eor r0, r0, r1
+   add r0, r0, #3
+   rsb r0, r0, r1
    sub r0, r15, r15

@@ -10,4 +10,6 @@ e2811001 // add     r1, r1, #1
 e1300001 // teq     r0, r1
 e1300000 // teq     r0, r0
 e0200001 // eor     r0, r0, r1
+e2800003 // add     r0, r0, #3
+e0600001 // rsb     r0, r0, r1
 e04f000f // sub     r0, pc, pc

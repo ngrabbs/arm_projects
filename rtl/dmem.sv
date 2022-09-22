@@ -26,9 +26,7 @@ module dmem#(
   Info:                  SB_GB:     8/    8   100%
   */
 
-  // TODO: verilator is complaining about this
-  //assign rd = RAM[a[31:2]]; // word aligned
-  always @(posedge clk)
+  always @(negedge clk) /* THIS HAS TO CHANGE TO POS FOR LIVE DEVICE */
   begin
     if (we)
       RAM[a[7:2]] <= wd;

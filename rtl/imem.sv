@@ -16,7 +16,8 @@ module imem#(
 
   initial begin
 //    $readmemh("rtl/mems/ex7_9memfile.dat", RAM);
-    $readmemh("rtl/mems/ex7_4memfile.dat", RAM);
+//    $readmemh("rtl/mems/ex7_4memfile.dat", RAM);
+    $readmemh("rtl/mems/testbench.tv", RAM);
     /* CMP */
     /*
     RAM[0]   = 32'he05f000f;

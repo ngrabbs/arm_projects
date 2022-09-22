@@ -1,12 +1,14 @@
+/* verilator lint_off WIDTH */
+/* verilator lint_off BLKSEQ */
 `timescale 1ns/1ps
 module alu_tb();
   logic        clk, reset;
   logic [31:0] SrcA, SrcB, ALUResult, ALUResult_expected;
-  logic [2:0]  ALUControl;
+  logic [3:0]  ALUControl;
   logic [3:0]  ALUFlags;
   logic        carry;
   logic [31:0] vectornum, errors;
-  logic [98:0] testvectors[10000:0];
+  logic [100:0] testvectors[10000:0];
 
   // dut
   alu dut(SrcA, SrcB, ALUControl, ALUResult, ALUFlags, carry);
@@ -22,7 +24,7 @@ module alu_tb();
   // and pulse reset
   initial
     begin
-      $readmemb("alu.tv", testvectors);
+      $readmemb("isim/alu.tv", testvectors);
       vectornum=0; errors=0;
       reset = 1; #27; reset = 0;
     end
@@ -47,7 +49,7 @@ module alu_tb();
 
     vectornum = vectornum + 1;
 
-    if (testvectors[vectornum] === 99'bx) begin
+    if (testvectors[vectornum] === 101'bx) begin
       $display("%d tests completed with %d errors",
         vectornum, errors);
       $finish;
