@@ -11,7 +11,7 @@ module arm(input  logic        clk, reset,
   logic       RegWrite,
               ALUSrc, MemtoReg, PCSrc;
   logic [1:0] RegSrc, ImmSrc;
-  logic [2:0] ALUControl;
+  logic [3:0] ALUControl;
   logic       carry;
   logic       Shift;
 

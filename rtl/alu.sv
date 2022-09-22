@@ -1,25 +1,30 @@
 `timescale 1ns/1ps
+/* verilator lint_off CASEINCOMPLETE */
 module alu(input  logic [31:0] SrcA, SrcB,
-           input  logic [2:0]  ALUControl,
+           input  logic [3:0]  ALUControl,
            output logic [31:0] ALUResult,
            output logic [3:0]  ALUFlags,
            input  logic        carry);
 
   logic        neg, zero, carryout, overflow;
-  logic [31:0] condinvb;
+  logic [31:0] condinva, condinvb;
   logic [32:0] sum;
   logic        carryin;
 
-  assign carryin = ALUControl[2] ? carry : ALUControl[0];
+  assign carryin = ALUControl[3] ? carry : ALUControl[0];
+
   assign condinvb = ALUControl[0] ? ~SrcB : SrcB; // invert for subtract
+  assign condinva = ALUControl[0] ? ~SrcA : SrcA; // invert for subtract
+
   /* verilator lint_off WIDTH */
-  assign sum = SrcA + condinvb + carryin;
+  assign sum = (ALUControl[2:0] == 3'b101) ? SrcB + condinva + carryin : SrcA + condinvb + carryin;
 
   always_comb
-    casez (ALUControl[1:0])
-      2'b0?: ALUResult = sum;
-      2'b10: ALUResult = SrcA & SrcB;
-      2'b11: ALUResult = SrcA | SrcB;
+    casez (ALUControl[2:0])
+      3'b00?: ALUResult = sum;
+      3'b010: ALUResult = SrcA & SrcB;
+      3'b011: ALUResult = SrcA | SrcB;
+      3'b100: ALUResult = SrcA ^ SrcB;
     endcase
 
   assign neg = ALUResult[31];

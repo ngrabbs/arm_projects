@@ -6,7 +6,7 @@ module decoder(input  logic [1:0] Op,
                output logic       PCS, RegW, MemW,
                output logic       MemtoReg, ALUSrc,
                output logic [1:0] ImmSrc, RegSrc,
-               output logic [2:0] ALUControl,
+               output logic [3:0] ALUControl,
                output logic       NoWrite,
                output logic       Shift);
   logic [9:0] controls;
@@ -37,47 +37,62 @@ module decoder(input  logic [1:0] Op,
     if (ALUOp) begin                    // Which DP Instr?
       case (Funct[4:1])
         4'b0100: begin                  // add
-                   ALUControl = 3'b000;
+                   ALUControl = 4'b0000;
                    NoWrite = 1'b0;
                    Shift = 1'b0;
                  end
         4'b0010: begin                  // sub
-                   ALUControl = 3'b001;
+                   ALUControl = 4'b0001;
+                   NoWrite = 1'b0;
+                   Shift = 1'b0;
+                 end
+        4'b0011: begin                  // rsb
+                   ALUControl = 4'b0101;
                    NoWrite = 1'b0;
                    Shift = 1'b0;
                  end
         4'b0000: begin                  // and
-                   ALUControl = 3'b010;
+                   ALUControl = 4'b0010;
                    NoWrite = 1'b0;
                    Shift = 1'b0;
                  end
         4'b1100: begin                  // or
-                   ALUControl = 3'b011;
+                   ALUControl = 4'b0011;
                    NoWrite = 1'b0;
                    Shift = 1'b0;
                  end
         4'b1000: begin                  // tst
-                   ALUControl = 3'b010;
+                   ALUControl = 4'b0010;
+                   NoWrite = 1'b1;
+                   Shift = 1'b0;
+                 end
+        4'b1001: begin                  // teq
+                   ALUControl = 4'b0100;
                    NoWrite = 1'b1;
                    Shift = 1'b0;
                  end
         4'b1101: begin                  // lsl
-                   ALUControl = 3'b000;
+                   ALUControl = 4'b0000;
                    NoWrite = 1'b0;
                    Shift = 1'b1;
                  end
         4'b1011: begin                  // cmn
-                   ALUControl = 3'b000;
+                   ALUControl = 4'b0000;
                    NoWrite = 1'b1;
                    Shift = 1'b0;
                  end
         4'b0101: begin                  // adc
-                   ALUControl = 3'b100;
+                   ALUControl = 4'b1000;
+                   NoWrite = 1'b0;
+                   Shift = 1'b0;
+                 end
+        4'b0001: begin                  // eor
+                   ALUControl = 4'b0100;
                    NoWrite = 1'b0;
                    Shift = 1'b0;
                  end
         default: begin                  // unimplemented
-                   ALUControl = 3'bx;
+                   ALUControl = 4'bx;
                    NoWrite = 1'bx;
                    Shift = 1'bx;
                  end
@@ -91,7 +106,7 @@ module decoder(input  logic [1:0] Op,
 
 
     end else begin
-        ALUControl = 3'b000; // add for non-dp instructions
+        ALUControl = 4'b0000; // add for non-dp instructions
         FlagW      = 2'b00; // dont update flags
         NoWrite    = 1'b0;
         Shift      = 1'b0;

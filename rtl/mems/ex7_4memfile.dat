@@ -1,0 +1,13 @@
+e04f000f // sub     r0, pc, pc
+e04f100f // sub     r1, pc, pc
+e2800001 // add     r0, r0, #1
+e1a00080 // lsl     r0, r0, #1
+e1a00080 // lsl     r0, r0, #1
+e1a000a0 // lsr     r0, r0, #1
+e1a000a0 // lsr     r0, r0, #1
+e04f000f // sub     r0, pc, pc
+e2811001 // add     r1, r1, #1
+e1300001 // teq     r0, r1
+e1300000 // teq     r0, r0
+e0200001 // eor     r0, r0, r1
+e04f000f // sub     r0, pc, pc

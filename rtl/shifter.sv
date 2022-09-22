@@ -6,6 +6,7 @@ module shifter(input  logic [31:0] a,
   always_comb
     case (shtype)
       2'b00:   y = a << shamt;
+      2'b01:   y = a >> shamt;
       default: y = a;
     endcase
 endmodule
