@@ -9,7 +9,6 @@ module cpu_tb();
   logic        MemWrite;
 
   // instantiate device to be tested
-//  cpu_main dut(clk, reset, WriteData, DataAdr, MemWrite);
   cpu_main main(clk, clk, reset, WriteData, DataAdr, MemWrite);
 
   // generate clock to sequence tests
@@ -30,11 +29,15 @@ module cpu_tb();
   // at end of program
   always @(negedge clk)
   begin
-    if (main.arm.Instr !== 32'bx ) begin
-      $display("PC=%h Instr=%h DataAdr=%h MemWrite=%b WriteData=%h RegWrite=%h", main.arm.PC, main.arm.Instr, DataAdr, MemWrite, WriteData, main.arm.RegWrite);
-    end else begin
-      $display("Simulation ended");
-      $finish;
+    $display("PC=%h Instr=%h DataAdr=%h MemWrite=%b WriteData=%h RegWrite=%h", main.arm.PC, main.arm.Instr, DataAdr, MemWrite, WriteData, main.arm.RegWrite);
+    if (MemWrite) begin
+      if (DataAdr === 100 & WriteData === 7) begin
+        $display("Simulation succeeded");
+        $finish;
+      end else if (DataAdr !== 96) begin
+        $display("Simulation failed");
+        $finish;
+      end
     end
   end
 endmodule

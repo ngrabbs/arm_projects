@@ -53,8 +53,8 @@ VTOP := cpu_main
 #   Icarus Verilog output directory
 ISIMDIR := isim
 #   Name of the SystemVerilog testbench module for Icarus Verilog (in ".sv" file with same name)
-ISIM_TB := testbench_tb
-#ISIM_TB := cpu_tb
+#ISIM_TB := testbench_tb
+ISIM_TB := cpu_tb
 #ISIM_TB := ex7_9_tb
 #ISIM_TB := alu_tb
 #   Name of Icarus Verilog simulation "vvp" output file
