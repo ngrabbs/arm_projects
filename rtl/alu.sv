@@ -21,11 +21,12 @@ module alu(input  logic [31:0] SrcA, SrcB,
 
   always_comb
     casez (ALUControl[2:0])
-      3'b00?: ALUResult = sum;
-      3'b101: ALUResult = sum;
-      3'b010: ALUResult = SrcA & SrcB;
-      3'b011: ALUResult = SrcA | SrcB;
-      3'b100: ALUResult = SrcA ^ SrcB;
+      3'b00?:  ALUResult = sum;
+      3'b101:  ALUResult = sum;
+      3'b010:  ALUResult = SrcA & SrcB;
+      3'b011:  ALUResult = SrcA | SrcB;
+      3'b100:  ALUResult = SrcA ^ SrcB;
+      default: ALUResult = 32'bx;
     endcase
 
   assign neg = ALUResult[31];
