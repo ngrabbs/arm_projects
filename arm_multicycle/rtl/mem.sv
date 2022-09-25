@@ -1,3 +1,5 @@
+/* verilator lint_off WIDTH */
+/* verilator lint_off UNUSED */
 `timescale 1ns/1ps
 module mem(input  logic        clk, we,
            input  logic [31:0] a, wd,
