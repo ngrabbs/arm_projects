@@ -171,7 +171,7 @@ $(VSIMDIR)/obj_dir/V$(VTOP): $(VSIMDIR)/$(VSIMCSRC) $(INC) $(SRC) $(MAKEFILE_LIS
 
 # delete all targets that will be re-generated
 clean:
-	rm -f $(ISIMDIR)/$(ISIMOUT) $(wildcard $(VSIMDIR)/obj_dir/*)
+	rm -rf $(LOGS) $(ISIMDIR)/$(ISIMOUT) $(wildcard $(VSIMDIR)/obj_dir/*)
 #	@cd goboard && make -f Makefile clean
 
 
