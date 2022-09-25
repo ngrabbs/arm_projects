@@ -21,11 +21,10 @@ module ahb_lite(input  logic        HCLK,
 
   // Memory map decoding
   ahb_decoder dec(HADDRDEL, HSEL);
-  mux4 #(32) mux(HRDATA0, HRDATA1, HRDATA2, HRDATA3, HSEL,
-              HRDATA);
+  ahb_mux     mux(HSEL, HRDATA0, HRDATA1, HRDATA2, HRDATA3, HRDATA);
 
   // Memory and peripherals
-  ahb_rom   ahb_rom  (HCLK, HSEL[0], HADDRDEL[15:2], HRDATA0);
+  ahb_rom   ahb_rom  (HCLK, HSEL[0], HADDR[15:2], HRDATA0);
   ahb_ram   ahb_ram  (HCLK, HSEL[1], HADDRDEL[16:2], HWRITEDEL,
                      HWDATA, HRDATA1);
 //  ahb_gpio  gpio (HCLK, HRESETn, HSEL[2], HADDRDEL[2],
