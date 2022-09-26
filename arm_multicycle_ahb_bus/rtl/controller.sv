@@ -14,7 +14,9 @@ module controller(input  logic         clk,
                   output logic [1:0]   ALUSrcB,
                   output logic [1:0]   ResultSrc,
                   output logic [1:0]   ImmSrc,
-                  output logic [1:0]   ALUControl);
+                  output logic [2:0]   ALUControl,
+                  output logic         carry,
+                  output logic         Shift);
 
   logic [1:0] FlagW;
   logic       PCS, NextPC, RegW, MemW, NoWrite;
@@ -22,9 +24,9 @@ module controller(input  logic         clk,
   decoder  dec(clk, reset, Instr[27:26], Instr[25:20], Instr[15:12],
                FlagW, PCS, NextPC, RegW, MemW,
                IRWrite, AdrSrc, ResultSrc,
-               ALUSrcA, ALUSrcB, ImmSrc, RegSrc, ALUControl, NoWrite);
+               ALUSrcA, ALUSrcB, ImmSrc, RegSrc, ALUControl, NoWrite, Shift);
   condlogic cl(clk, reset, Instr[31:28], ALUFlags,
                FlagW, PCS, NextPC, RegW, MemW,
-               PCWrite, RegWrite, MemWrite, NoWrite);
+               PCWrite, RegWrite, MemWrite, carry, NoWrite);
 
 endmodule

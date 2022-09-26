@@ -1,6 +1,8 @@
 /* verilator lint_off INITIALDLY */
 /* verilator lint_off COMBDLY */
 // ARM multicycle processor
+// Added instructions:
+//    ASR, TST, SBC, ROR, CMP
 `timescale 1ns/1ps
 module testbench_tb();
 
@@ -32,7 +34,8 @@ module testbench_tb();
     begin
       $display("MemWrite: %b Adr: %h WriteData: %h ReadData: %h state: %b nextstate: %b R0:%h R3: %h R9: %h R1: %h", dut.MemWrite, dut.Adr, dut.WriteData, dut.ReadData, dut.arm.c.dec.fsm.state, dut.arm.c.dec.fsm.nextstate, dut.arm.dp.rf.rf[0], dut.arm.dp.rf.rf[3], dut.arm.dp.rf.rf[9], dut.arm.dp.rf.rf[1]);
       if(MemWrite) begin
-        if(DataAdr === 131156 & WriteData === 7) begin
+//        if(DataAdr === 131156 & WriteData === 7) begin
+        if(DataAdr === 88 & WriteData === 32'h2ffffffe) begin
           $display("Simulation succeeded");
           $finish;
         end else if (DataAdr !== 96) begin

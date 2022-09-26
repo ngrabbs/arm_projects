@@ -11,16 +11,20 @@ module datapath(input  logic        clk, reset,
                 input  logic [1:0]  RegSrc,
                 input  logic        ALUSrcA,
                 input  logic [1:0]  ALUSrcB, ResultSrc,
-                input  logic [1:0]  ImmSrc, ALUControl);
+                input  logic [1:0]  ImmSrc,
+                input  logic [2:0]  ALUControl,
+                input  logic        carry,
+                input  logic        Shift);
 
   logic [31:0] PCNext, PC;
   logic [31:0] ExtImm, SrcA, SrcB, Result;
   logic [31:0] Data, rd1, rd2, A, ALUResult, ALUOut;
   logic [3:0]  ra1, ra2;
+  logic [31:0] srcBshifted, ALUResultOut;
 
     // next PC logic
   flopenr #(32) pcreg(clk, reset, PCWrite, Result, PC); // feeds pcmux
-  mux2    #(32) pcmux(PC, Result, AdrSrc, Adr); // feeds mem
+  mux2    #(32) pcmux(PC, ALUOut, AdrSrc, Adr); // feeds mem
                                              // mem
   flopenr #(32) irreg(clk, reset, IRWrite, ReadData, Instr); // feeds Instr to regfile / ext
   flopr   #(32) datareg(clk, reset, ReadData, Data);          // feeds irreg
@@ -37,11 +41,10 @@ module datapath(input  logic        clk, reset,
 
   // alu
   mux2   #(32)  srcamux(A, PC, ALUSrcA, SrcA);
-  mux3   #(32)  srcbmux(WriteData, ExtImm, 32'd4, ALUSrcB, SrcB);
-
-  alu           alu(SrcA, SrcB, ALUControl, ALUResult, ALUFlags); // fed from reg file into aluout flop
-
-  flopr  #(32)  aluout(clk, reset, ALUResult, ALUOut); //  feeds into resmux
-  mux3   #(32)  resmux(ALUOut, Data, ALUResult, ResultSrc, Result);  // last step of loop
-
+  mux3   #(32)  srcbmux(srcBshifted, ExtImm, 32'd4, ALUSrcB, SrcB);
+  shifter       sh(WriteData, Instr[11:7], Instr[6:5], srcBshifted);
+  alu           alu(SrcA, SrcB, ALUControl, ALUResult, ALUFlags, carry); // fed from reg file into aluout flop
+  mux2   #(32)  aluresultmux(ALUResult, SrcB, Shift, ALUResultOut);
+  flopr  #(32)  aluout(clk, reset, ALUResultOut, ALUOut); //  feeds into resmux
+  mux3   #(32)  resmux(ALUOut, Data, ALUResultOut, ResultSrc, Result);  // last step of loop
 endmodule
