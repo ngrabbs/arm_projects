@@ -32,12 +32,12 @@ module testbench_tb();
     begin
       $display("MemWrite: %b Adr: %h WriteData: %h ReadData: %h state: %b nextstate: %b R0:%h R3: %h R9: %h R1: %h", dut.MemWrite, dut.Adr, dut.WriteData, dut.ReadData, dut.arm.c.dec.fsm.state, dut.arm.c.dec.fsm.nextstate, dut.arm.dp.rf.rf[0], dut.arm.dp.rf.rf[3], dut.arm.dp.rf.rf[9], dut.arm.dp.rf.rf[1]);
       if(MemWrite) begin
-        if(DataAdr === 100 & WriteData === 7) begin
+        if(DataAdr === 131156 & WriteData === 7) begin
           $display("Simulation succeeded");
           $finish;
         end else if (DataAdr !== 96) begin
           $display("Simulation failed");
-          //$finish;
+          $finish;
         end
       end else if (dut.Adr === 32'bx) begin
         $display("Simulation failed");

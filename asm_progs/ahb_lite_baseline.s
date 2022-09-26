@@ -26,20 +26,23 @@ around:
   add r9, r9, #128 /* max count  */
   add r9, r9, #128 /* max count  */
   add r9, r9, #128 /* max count  */
-  add r9, r9, #128 /* max count =256  */
+  add r9, r9, #128 /* max count  */
   sub r1, r15, r15 /* counter */
 loop:
   add r3, r3, #200
+  add r0, r0, #200
   add r1, r1, #1
   cmp r1, r9
   blt loop
   sub r3, r3, #0x8c
+  sub r0, r0, #0x8c
+  add r0, r0, #12
 
 /* at this point r3 has a good base address */
 
   str r7, [r3, #84]   /* mem[12+84] = 7 */
   add r0, r3, #1      /* set r0 to our good base address too */
-  ldr r2, [r0, #84]   /* r2 = mem[96] = 7 */
+  ldr r2, [r0, #72]   /* r2 = mem[96] = 7 */
 
   add r15, r15, r0    /* pc = pc+8 (skips next) */
   add r2, r0, #14     /* shouldn't happen */
