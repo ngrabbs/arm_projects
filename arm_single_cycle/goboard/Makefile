@@ -111,7 +111,7 @@ clean:
 	rm -rf $(VLT_CONFIG) $(FPGATOP).asc $(FPGATOP).json $(FPGATOP).bin $(LOGS)
 
 # common rules to run FPGA tools
-include ../common.mk
+include ../../common.mk
 
 # prevent make from deleting any intermediate files
 .SECONDARY:
