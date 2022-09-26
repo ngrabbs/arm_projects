@@ -17,37 +17,30 @@ around:
   subs r8, r7, r2     /* r8 = 3 - 5 = -2, set Flags */
   addlt r7, r5, #1    /* r7 = 11 + 1 = 12 */
   sub r7, r7, r2      /* r7 = 12 - 5 - 7 */
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #0xFF
-  add r3, r3, #99
-  add r3, r3, #2000
-  add r3, r3, #2000
-  add r3, r3, #2000
-  add r3, r3, #2000
-  add r3, r3, #2000
+  sub r9, r15, r15
+
+  add r9, r9, #16
+/*   add r9, r9, #32 */
+/*   add r9, r9, #64 */
+  add r9, r9, #128 /* max count  */
+  add r9, r9, #128 /* max count  */
+  add r9, r9, #128 /* max count  */
+  add r9, r9, #128 /* max count  */
+  add r9, r9, #128 /* max count =256  */
+  sub r1, r15, r15 /* counter */
+loop:
+  add r3, r3, #200
+  add r1, r1, #1
+  cmp r1, r9
+  blt loop
+  sub r3, r3, #0x8c
+
+/* at this point r3 has a good base address */
+
   str r7, [r3, #84]   /* mem[12+84] = 7 */
-  add r0, r0, #0x2000
-  ldr r2, [r0, #96]   /* r2 = mem[96] = 7 */
+  add r0, r3, #1      /* set r0 to our good base address too */
+  ldr r2, [r0, #84]   /* r2 = mem[96] = 7 */
+
   add r15, r15, r0    /* pc = pc+8 (skips next) */
   add r2, r0, #14     /* shouldn't happen */
   b end               /* always taken */

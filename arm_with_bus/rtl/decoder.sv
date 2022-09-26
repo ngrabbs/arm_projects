@@ -8,7 +8,8 @@ module decoder(input  logic       clk, reset,
                output logic       IRWrite, AdrSrc,
                output logic [1:0] ResultSrc,
                output logic       ALUSrcA,
-               output logic [1:0] ALUSrcB, ImmSrc, RegSrc, ALUControl);
+               output logic [1:0] ALUSrcB, ImmSrc, RegSrc, ALUControl,
+               output logic       NoWrite);
 
   logic        Branch, ALUOp;
 
@@ -24,6 +25,7 @@ module decoder(input  logic       clk, reset,
             4'b0010: ALUControl = 2'b01; // SUB
             4'b0000: ALUControl = 2'b10; // AND
             4'b1100: ALUControl = 2'b11; // ORR
+            4'b1010: ALUControl = 2'b01; // CMP
             default: ALUControl = 2'bx;  // unimplemented
       endcase
       FlagW[1] = Funct[0]; // update N & Z flags if S bit is set
@@ -32,6 +34,9 @@ module decoder(input  logic       clk, reset,
       ALUControl = 2'b00; // add for non data-processing instructions
       FlagW      = 2'b00; // don't update Flags
     end
+
+  // assign no write
+  assign NoWrite = (Funct[4:1] === 4'b1010) ? 1'b1 : 1'b0;
 
   // PC Logic
   assign PCS = ((Rd == 4'b1111) & RegW) | Branch;
