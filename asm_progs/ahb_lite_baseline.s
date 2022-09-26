@@ -19,6 +19,8 @@ around:
   sub r7, r7, r2      /* r7 = 12 - 5 - 7 */
   sub r9, r15, r15
 
+  /* im building up the address 0x00020000 because i dont
+     mul or lsl */
   add r9, r9, #16
 /*   add r9, r9, #32 */
 /*   add r9, r9, #64 */
