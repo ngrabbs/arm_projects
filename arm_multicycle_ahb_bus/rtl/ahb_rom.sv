@@ -7,8 +7,7 @@ module ahb_rom(input  logic        HCLK, HSEL,
   logic [31:0] rom[16383:0]; // 64KB ROM organized as 32K x 32 bits;
 
   initial begin
-//    $readmemh("isim/memfile.dat", rom);
-    $readmemh("ex7.27_memfile.dat", rom);
+    $readmemh("isim/ex7_27_memfile.dat", rom);
     /* Count -> works on goboard */
     /*
     rom[0]  = 32'he04f000f;
@@ -40,6 +39,4 @@ module ahb_rom(input  logic        HCLK, HSEL,
   end
 
   assign HRDATA = rom[HADDR];
-//  always_ff @(posedge HCLK)
-//    HRDATA <= rom[HADDR];
 endmodule

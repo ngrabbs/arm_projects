@@ -1,0 +1,10 @@
+e04f300f // sub     r3, pc, pc
+e243401e // sub     r4, r3, #30
+e1a050c4 // asr     r5, r4, #1
+e1140005 // tst     r4, r5
+40946005 // addsmi  r6, r4, r5
+e0d57006 // sbcs    r7, r5, r6
+e2933019 // adds    r3, r3, #25
+e0c78005 // sbc     r8, r7, r5
+e1a09264 // ror     r9, r4, #4
+e588902c // str     r9, [r8, #44]   ; 0x2c

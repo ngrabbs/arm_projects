@@ -20,6 +20,10 @@ module testbench_tb();
     begin
       $dumpfile("logs/testbench_tb.fst");
       $dumpvars(0, dut);
+//      reset = 1'b1;
+//      clk = 1'b0;
+//      #(2*(1_000_000_000/12_000_000)) reset = 1'b0;
+
       reset <= 1; # 22; reset <= 0;
     end
 
@@ -30,9 +34,11 @@ module testbench_tb();
     end
 
   // check results
-  always @(negedge clk)
-    begin
-      $display("MemWrite: %b Adr: %h WriteData: %h ReadData: %h state: %b nextstate: %b R0:%h R3: %h R9: %h R1: %h", dut.MemWrite, dut.Adr, dut.WriteData, dut.ReadData, dut.arm.c.dec.fsm.state, dut.arm.c.dec.fsm.nextstate, dut.arm.dp.rf.rf[0], dut.arm.dp.rf.rf[3], dut.arm.dp.rf.rf[9], dut.arm.dp.rf.rf[1]);
+  always @(negedge clk) begin
+
+//    always begin
+      $display("MW: %b AR: %h WD: %h RD: %h ST: %b AF: %b R0:%h R1: %h R3: %h R4: %h R5: %h R6: %h R8: %h R9: %h", dut.MemWrite, dut.Adr, dut.WriteData, dut.ReadData, dut.arm.c.dec.fsm.state, dut.arm.ALUFlags, dut.arm.dp.rf.rf[0], dut.arm.dp.rf.rf[1], dut.arm.dp.rf.rf[3], dut.arm.dp.rf.rf[4], dut.arm.dp.rf.rf[5], dut.arm.dp.rf.rf[6], dut.arm.dp.rf.rf[8], dut.arm.dp.rf.rf[9]);
+
       if(MemWrite) begin
 //        if(DataAdr === 131156 & WriteData === 7) begin
         if(DataAdr === 88 & WriteData === 32'h2ffffffe) begin
