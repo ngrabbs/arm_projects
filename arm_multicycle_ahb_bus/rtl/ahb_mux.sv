@@ -10,5 +10,6 @@ module ahb_mux(input  logic [3:0]  HSEL,
       4'b??10: HRDATA <= HRDATA1;
       4'b?100: HRDATA <= HRDATA2;
       4'b1000: HRDATA <= HRDATA3;
+      default: HRDATA <= 32'bx;
     endcase
 endmodule

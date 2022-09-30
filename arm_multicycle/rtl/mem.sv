@@ -7,7 +7,7 @@ module mem(input  logic        clk, we,
 
   logic [31:0] RAM[63:0];
   initial
-    $readmemh("isim/memfile.dat", RAM);
+    $readmemh("isim/memfile_test.dat", RAM);
 
   assign rd = RAM[a[31:2]];  // word aligned
 

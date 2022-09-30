@@ -1,5 +1,6 @@
 `timescale 1ns/1ps
 /* verilator lint_off WIDTH */
+/*
 module ahb_timer(input  logic        HCLK,
                  input  logic        HRESETn,
                  input  logic        HSEL,
@@ -45,3 +46,4 @@ module ahb_timer(input  logic        HCLK,
     assign match[2] = ~clr[2] & (timers[0][2] | (timers[1] == timers[5]));
     assign match[3] = ~clr[3] & (timers[0][3] | (timers[1] == timers[6]));
 endmodule
+*/

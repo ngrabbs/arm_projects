@@ -37,7 +37,7 @@ module testbench_tb();
   always @(negedge clk) begin
 
 //    always begin
-      $display("MW: %b AR: %h WD: %h RD: %h ST: %b AF: %b R0:%h R1: %h R3: %h R4: %h R5: %h R6: %h R8: %h R9: %h", dut.MemWrite, dut.Adr, dut.WriteData, dut.ReadData, dut.arm.c.dec.fsm.state, dut.arm.ALUFlags, dut.arm.dp.rf.rf[0], dut.arm.dp.rf.rf[1], dut.arm.dp.rf.rf[3], dut.arm.dp.rf.rf[4], dut.arm.dp.rf.rf[5], dut.arm.dp.rf.rf[6], dut.arm.dp.rf.rf[8], dut.arm.dp.rf.rf[9]);
+      $display("MW: %b AR: %h WD: %h RD: %h ST: %b AF: %b R0:%h R1: %h R3: %h HADDR: %h HSEL: %b HADDR: %h HWRITE: %b HWDATA: %h HRDATA: %h", dut.MemWrite, dut.Adr, dut.WriteData, dut.ReadData, dut.arm.c.dec.fsm.state, dut.arm.ALUFlags, dut.arm.dp.rf.rf[0], dut.arm.dp.rf.rf[1], dut.arm.dp.rf.rf[3], dut.ahb_lite.HADDR, dut.ahb_lite.HSEL, dut.ahb_lite.ahb_ram.HADDR, dut.ahb_lite.ahb_ram.HWRITE, dut.ahb_lite.ahb_ram.HWDATA, dut.ahb_lite.ahb_ram.HRDATA);
 
       if(MemWrite) begin
 //        if(DataAdr === 131156 & WriteData === 7) begin
@@ -46,12 +46,13 @@ module testbench_tb();
           $finish;
         end else if (DataAdr !== 96) begin
           $display("Simulation failed");
-          $finish;
+//          $finish;
         end
-      end else if (dut.Adr === 32'bx) begin
+//      end else if (dut.Adr === 32'bx begin
+      end else if (dut.MemWrite === 1'bx) begin
         $display("Simulation failed");
         $finish;
       end
-    end
+  end
 
 endmodule

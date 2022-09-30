@@ -15,6 +15,9 @@ module ahb_lite(input  logic        HCLK,
   logic [31:0] HADDRDEL;
   logic        HWRITEDEL;
 
+  assign HRDATA2 = 32'bx; // tie these two down till we use them
+  assign HRDATA3 = 32'bx;
+
   // Delay address and write signals to align in time with data
   flop #(32) adrreg(HCLK, HADDR, HADDRDEL);
   flop #(1)  writereg(HCLK, HWRITE, HWRITEDEL);
@@ -25,12 +28,13 @@ module ahb_lite(input  logic        HCLK,
 
   // Memory and peripherals
   ahb_rom   ahb_rom  (HCLK, HSEL[0], HADDR[15:2], HRDATA0);
-  ahb_ram   ahb_ram  (HCLK, HSEL[1], HADDRDEL[16:2], HWRITEDEL,
+  ahb_ram   ahb_ram  (HCLK, HSEL[1], HADDRDEL[16:2], HWRITE,
                      HWDATA, HRDATA1);
 //  ahb_gpio  gpio (HCLK, HRESETn, HSEL[2], HADDRDEL[2],
 //                  HWRITEDEL, HWDATA, HRDATA2, pins);
-  ahb_timer timer(HCLK, HRESETn, HSEL[3], HADDRDEL[4:2],
-                  HWRITEDEL, HWDATA, HRDATA3);
+//  ahb_timer timer(HCLK, HRESETn, HSEL[3], HADDRDEL[4:2],
+//                  HWRITEDEL, HWDATA, HRDATA3);
+//  ahb_spi ahb_spi (HCLK, HSEL[4], HADDR[31:0], HRDATA4);
 endmodule
 
 /*

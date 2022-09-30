@@ -1,0 +1,13 @@
+e04f000f // sub     r0, pc, pc
+e04f100f // sub     r1, pc, pc
+e2800001 // add     r0, r0, #1
+e1a00880 // lsl     r0, r0, #17
+e2811001 // add     r1, r1, #1
+e1a01a81 // lsl     r1, r1, #21
+e04f100f // sub     r1, pc, pc
+e2811005 // add     r1, r1, #5
+e5801000 // str     r1, [r0]
+e5903000 // ldr     r3, [r0]
+e08f400f // add     r4, pc, pc
+e08f400f // add     r4, pc, pc
+e08f400f // add     r4, pc, pc

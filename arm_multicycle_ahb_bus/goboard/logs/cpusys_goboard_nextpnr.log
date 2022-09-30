@@ -1,0 +1,63 @@
+Info: constrained 'CLK' to bel 'X0/Y8/io1'
+Info: constrained 'o_LED_1' to bel 'X13/Y6/io1'
+Info: constrained 'o_LED_2' to bel 'X13/Y7/io0'
+Info: constrained 'o_LED_3' to bel 'X13/Y7/io1'
+Info: constrained 'o_LED_4' to bel 'X13/Y8/io0'
+Info: constrained 'i_Switch_1' to bel 'X13/Y4/io1'
+Info: constrained 'o_Segment1_A' to bel 'X0/Y13/io1'
+Info: constrained 'o_Segment1_B' to bel 'X0/Y13/io0'
+Info: constrained 'o_Segment1_C' to bel 'X5/Y17/io1'
+Info: constrained 'o_Segment1_D' to bel 'X6/Y17/io0'
+Info: constrained 'o_Segment1_E' to bel 'X6/Y17/io1'
+Info: constrained 'o_Segment1_F' to bel 'X0/Y14/io1'
+Info: constrained 'o_Segment1_G' to bel 'X0/Y14/io0'
+Info: constrained 'o_Segment2_A' to bel 'X1/Y17/io1'
+Info: constrained 'o_Segment2_B' to bel 'X2/Y17/io1'
+Info: constrained 'o_Segment2_C' to bel 'X3/Y17/io1'
+Info: constrained 'o_Segment2_D' to bel 'X4/Y17/io1'
+Info: constrained 'o_Segment2_E' to bel 'X5/Y17/io0'
+Info: constrained 'o_Segment2_F' to bel 'X0/Y12/io0'
+Info: constrained 'o_Segment2_G' to bel 'X4/Y17/io0'
+
+Info: Packing constants..
+Info: Packing IOs..
+Info: Packing LUT-FFs..
+Info:     2281 LCs used as LUT4 only
+Info:      111 LCs used as LUT4 and DFF
+Info: Packing non-LUT FFs..
+Info:      681 LCs used as DFF only
+Info: Packing carries..
+Info:        1 LCs used as CARRY only
+Info: Packing indirect carry+LUT pairs...
+Info:        0 LUTs merged into carry LCs
+Info: Packing RAMs..
+Info: Placing PLLs..
+Info: Packing special functions..
+Info: Packing PLLs..
+Info: Promoting globals..
+Info: promoting clk_en (fanout 1258)
+Info: promoting reset [reset] (fanout 223)
+Info: promoting CLK$SB_IO_IN (fanout 46)
+Info: promoting $PACKER_VCC_NET [logic] (fanout 768)
+Info: promoting dataadr[4] [logic] (fanout 273)
+Info: promoting dataadr[2] [logic] (fanout 272)
+Info: promoting dataadr[3] [logic] (fanout 272)
+Info: promoting top.arm.IRWrite [cen] (fanout 32)
+Info: Constraining chains...
+Info:        4 LCs used to legalise carry chains.
+Info: Checksum: 0x3d6cfd70
+
+Info: Annotating ports with timing budgets for target frequency 12.00 MHz
+Info: Checksum: 0x59ce23c6
+
+Info: Device utilisation:
+Info: 	         ICESTORM_LC:  3080/ 1280   240%
+Info: 	        ICESTORM_RAM:   256/   16  1600%
+Info: 	               SB_IO:    20/  112    17%
+Info: 	               SB_GB:     8/    8   100%
+Info: 	        ICESTORM_PLL:     0/    1     0%
+Info: 	         SB_WARMBOOT:     0/    1     0%
+
+Info: Placed 20 cells based on constraints.
+ERROR: Unable to place cell 'top.ahb_lite.ahb_ram.ram.0.216_RAM', no BELs remaining to implement cell type 'ICESTORM_RAM'
+0 warnings, 1 error

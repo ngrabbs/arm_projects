@@ -37,8 +37,14 @@ module testbench_tb();
           $finish;
         end else if (DataAdr !== 96) begin
           $display("Simulation failed");
-          $finish;
+          //$finish;
         end
+      end else if (MemWrite === 1'bx) begin
+          $display("Simulation failed");
+          $finish;
+      end else if (dut.Adr === 32'bx) begin
+          $display("Simulation failed");
+          $finish;
       end
     end
 

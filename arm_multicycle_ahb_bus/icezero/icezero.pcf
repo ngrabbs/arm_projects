@@ -1,0 +1,159 @@
+# IceZero with Lattice ICE40HX, 4 Mbit external SRAM, 3.05 x 6.5 cm
+# https://shop.trenz-electronic.de/en/TE0876-02-A-IceZero-with-Lattice-ICE40HX-4-Mbit-external-SRAM-3.05-x-6.5-cm
+# Report bugs to anton.krug@gmail.com
+# 2022/07/03 Version 7 (matching the v7 pinout diagram cheatsheet)
+
+# Main clock connected to the 100MHz oscilator, use icepll to configure the PLL for custom clocks
+# SiT8008AI-73-XXS-100.00000E
+set_io clk_100mhz 49 # IOB_81_GBIN5
+
+
+# Three red LEDs
+set_io led[0] 110
+set_io led[1]  93    # IOR_140_GBIN3
+set_io led[2]  94    # IOR_141_GBIN2
+
+
+# A single user button while CBSEL at the same time
+set_io button  63    # IOB_103_CBSEL0 (configuration)
+
+
+# J1 auxialary connector
+set_io j1[0] 120
+set_io j1[1] 117
+set_io j1[2] 121
+set_io j1[3] 118
+set_io j1[4] 116
+
+
+# J3 FTDI connector, for a cheap USB FTDI adapter
+# careful, the VCC is 5V but the IO must be 3.3V!
+# a mod of the FTDI adapter might be necesarry
+# https://www.ebay.ie/itm/182762889906
+# CTS output can be set to low while DTR input can be ignored
+set_io j3_cts 119
+set_io j3_tx 122
+set_io j3_rx 124
+set_io j3_dtr 125
+
+
+# Raspberry Pi connector
+set_io rpi_i2c_sda 115
+set_io rpi_i2c_scl 114
+
+set_io rpi_uart_tx 113
+set_io rpi_uart_rx 112
+
+set_io rpi_spi_mosi 90
+set_io rpi_spi_miso 87
+set_io rpi_spi_sck 79
+set_io rpi_spi_ce0n 85
+set_io rpi_spi_ce1n 78
+
+set_io rpi_gpio_22 101
+set_io rpi_gpio_24 99
+set_io rpi_gpio_25 88
+
+# Configuration pins are connected to the GPIOs to the Raspberry Pi
+# The 64M SPI configuration memory is N25Q064A13ESE40F or IS25LP064D-JBLE
+#set_io rpi_gpio_5 65  # cfg_cdone
+#set_io rpi_gpio_6 68  # cfg_sdi
+#set_io rpi_gpio_12 71 # cfg_sdo
+#set_io rpi_gpio_13 67 # cfg_sck
+#set_io rpi_gpio_16 70 # cfg_ss
+#set_io rpi_gpio_26 66 # cfg_creset_b
+
+
+set_io rpi_sd 73
+set_io rpi_sc 74
+
+
+# Four PMOD connectors, the 8th and 9th pins are GND and 10th, 11th are 3.3V
+set_io p1[0] 139
+set_io p1[1] 141
+set_io p1[2] 137
+set_io p1[3] 138
+set_io p1[4] 135
+set_io p1[5] 136
+set_io p1[6] 130
+set_io p1[7] 134
+
+
+set_io p2[0] 56
+set_io p2[1] 55
+set_io p2[2] 48
+set_io p2[3] 47
+set_io p2[4] 45
+set_io p2[5] 44
+set_io p2[6] 43
+set_io p2[7] 42
+
+
+set_io p3[0] 26
+set_io p3[1] 41
+set_io p3[2] 29
+set_io p3[3] 39
+set_io p3[4] 28
+set_io p3[5] 38
+set_io p3[6] 52  # IOB_81_GBIN4
+set_io p3[7] 37
+
+
+set_io p4[0] 21  # IOL_14A_GBIN6
+set_io p4[1] 1
+set_io p4[2] 20  # IOL_13B_GBIN7
+set_io p4[3] 144
+set_io p4[4] 8
+set_io p4[5] 143
+set_io p4[6] 7
+set_io p4[7] 142
+
+
+# SRAM 512KB (256*16bit=4Mbit) IS61WV25616EDBLL-10TLI (10ns access time)
+# pins A9, A10, A16 and A17 are different compared to IceZero schematic
+# but this pinout is matching the SRAMs pinout, and overall the address
+# signals can be mixed (as the same mixed signals will be used to read
+# the data back and it will work correctly anyway)
+set_io sram_addr[0] 34
+set_io sram_addr[1] 33
+set_io sram_addr[2] 32
+set_io sram_addr[3] 31
+set_io sram_addr[4] 25
+set_io sram_addr[5] 10
+set_io sram_addr[6] 9
+set_io sram_addr[7] 4
+set_io sram_addr[8] 3
+set_io sram_addr[9] 60
+set_io sram_addr[10] 61
+set_io sram_addr[11] 106
+set_io sram_addr[12] 105
+set_io sram_addr[13] 104
+set_io sram_addr[14] 102
+set_io sram_addr[15] 62
+set_io sram_addr[16] 107
+set_io sram_addr[17] 2
+
+set_io sram_data[0] 23
+set_io sram_data[1] 22
+set_io sram_data[2] 19
+set_io sram_data[3] 18
+set_io sram_data[4] 17
+set_io sram_data[5] 16
+set_io sram_data[6] 15
+set_io sram_data[7] 12
+set_io sram_data[8] 97
+set_io sram_data[9] 96
+set_io sram_data[10] 95
+set_io sram_data[11] 91
+set_io sram_data[12] 84
+set_io sram_data[13] 82
+set_io sram_data[14] 83
+set_io sram_data[15] 80
+
+set_io sram_cen 6
+set_io sram_wen 17
+set_io sram_oen 41
+set_io sram_lbn 39
+set_io sram_ubn 40
+set_io sram_nc 28    # on the SRAM IC this pin is N/C
+
