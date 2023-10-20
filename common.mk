@@ -28,7 +28,7 @@ LOGS ?= .
 	@rm -f $@
 	@mkdir -p $(LOGS)
 	$(NEXTPNR) -l $(LOGS)/$(basename $(notdir $@))_nextpnr.log $(NEXTPNR_OPTS) --$(DEVICE) --package $(PACKAGE) --json $< --pcf $(PIN_DEF) --asc $(basename $(notdir $@)).asc
-#	$(ICEPACK) $(basename $(notdir $@)).asc $@
+	$(ICEPACK) $(basename $(notdir $@)).asc $@
 	@rm $(basename $(notdir $@)).asc
 	@echo === Synthesis stats for $(basename $(notdir $@)) on $(DEVICE) === | tee $(LOGS)/$(basename $(notdir $@))_stats.txt
 	@-tabbyadm version | grep "Package" | tee -a $(LOGS)/$(basename $(notdir $@))_stats.txt
