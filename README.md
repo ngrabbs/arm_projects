@@ -77,13 +77,13 @@ Afterwards your goboard should count: ![goboard counting](./img/goboard.jpg)
 
 A bit on environment / flow.
 
-  -> every time I set this up again I always want to setup a raspberry pi for a development environment.  But that is not how my own flow goes.  My development flow works like this:
+  every time I set this up again I always want to setup a raspberry pi for a development environment.  But that is not how my own flow goes.  My development flow works like this:
 
   macbook w/tools: oss-cad-suite, vscode, arm cross compiler
 
   build / develop on the mac, then either load directly off the mac onto fpga in case of the goboard OR you can build the bitmap and copy it to the pizero and flash off the pizero straight to the icezero in case of the icezero.  Key point is to top trying to build a development environment on a raspberry pi every time you start this up again.
 
-if you want to just test the assembler on the pi:
+if you want to just test the assembler on the pi( this is a bad example, I typically dont do this, i use the cross compiler on the mac instead of running directly on a pi):
 ```
 pi@raspberrypi:~ $ as -o arm_test_example_os.o arm_test_example_os.s
 pi@raspberrypi:~ $ objdump -S arm_test_example_os.o
