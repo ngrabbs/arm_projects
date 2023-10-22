@@ -1,5 +1,6 @@
 /* verilator lint_off INITIALDLY */
 /* verilator lint_off COMBDLY */
+/* verilator lint_off UNUSED */
 // ARM multicycle processor
 // Added instructions:
 //    ASR, TST, SBC, ROR, CMP
@@ -12,8 +13,10 @@ module testbench_tb();
   logic [31:0] WriteData, DataAdr;
   logic        MemWrite;
 
+  logic [2:0] ledPins;
+
   // instantiate device to be tested
-  top dut(clk, reset, WriteData, DataAdr, MemWrite);
+  top dut(clk, reset, WriteData, DataAdr, MemWrite, ledPins);
 
   // initialize test
   initial

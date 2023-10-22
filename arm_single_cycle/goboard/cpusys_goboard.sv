@@ -1,5 +1,4 @@
 /* verilator lint_off UNUSED */
-/* verilator lint_off UNUSED */
 // cpu_goboard.sv -
 //
 // vim: set et ts=4 sw=4
@@ -47,7 +46,6 @@ module cpusys_goboard (
 logic        clk;
 logic        MemWrite;
 //logic        halt;
-/* verilator lint_off UNUSED */
 logic [31:0] out_value;
 logic [31:0] dataadr;
 logic [3:0]  low_seg;

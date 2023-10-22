@@ -16,7 +16,7 @@ SHELL := /bin/bash -o pipefail
 
 # === SystemVerilog source ===
 #   SystemVerilog source and include directory info (uses all *.sv files here in design)
-	icetime -d hx8k -c 25 icezero.ascSRCDIR := ../rtl
+#	icetime -d hx8k -c 25 icezero.ascSRCDIR := ../rtl
 SRCDIR := ../rtl
 #   Name of the "main" module of design (in ".sv" file with same name)
 FPGATOP := cpusys_icezero
