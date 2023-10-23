@@ -19,4 +19,3 @@ void main(void)
   // Initialize the SPI:
   // 244 kHz clk, default settings // Send letter A and receive byte
 }
-pi @raspb
